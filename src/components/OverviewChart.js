@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler
 } from 'chart.js';
 
 // Register ChartJS components
@@ -19,93 +20,64 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 const OverviewChart = ({ isMobile }) => {
-  const [activeMetric, setActiveMetric] = useState('Visitors');
-  const [activeTime, setActiveTime] = useState('Last 30 days');
-  const [activeAdd, setActiveAdd] = useState('Connections');
-  const [showMetricDropdown, setShowMetricDropdown] = useState(false);
-  const [showTimeDropdown, setShowTimeDropdown] = useState(false);
-  const [showAddDropdown, setShowAddDropdown] = useState(false);
-
-  const metricOptions = ['Visitors', 'Connections', 'Interactions', 'Impressions'];
-  const timeOptions = ['Today', 'Yesterday', 'This week', 'Last week', 'Last 7 days', 'Last 30 days'];
-  const addOptions = ['Connections', 'Interactions', 'Impressions'];
-
-  // Sample data for chart
   const labels = ['Mar 1', 'Mar 5', 'Mar 10', 'Mar 15', 'Mar 20', 'Mar 25', 'Mar 30'];
   
+  // Sample data for demonstration
   const data = {
     labels,
     datasets: [
       {
         label: 'Visitors',
-        data: [200, 900, 600, 800, 600, 1100, 900],
+        data: [300, 1200, 950, 650, 700, 900, 950],
         borderColor: 'white',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        tension: 0.4,
-        pointRadius: 0,
-        borderWidth: 2,
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+        borderWidth: 1.5,
+        tension: 0, // Straight lines with no curve
+        fill: false,
       },
       {
         label: 'Connections',
-        data: [350, 750, 450, 950, 1200, 800, 700],
-        borderColor: '#8B5CF6', // Purple color
-        backgroundColor: 'rgba(139, 92, 246, 0.1)',
-        tension: 0.4,
-        pointRadius: 0,
-        borderWidth: 2,
+        data: [200, 400, 1400, 800, 850, 900, 400],
+        borderColor: '#8B5CF6',
+        backgroundColor: 'rgba(139, 92, 246, 0)',
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+        borderWidth: 1.5,
+        tension: 0, // Straight lines with no curve
+        fill: false,
       }
     ],
   };
-  
-  const chartOptions = {
+
+  const options = {
     responsive: true,
     maintainAspectRatio: false,
-    layout: {
-      padding: {
-        left: 0,
-        right: 0,
-        top: 10,
-        bottom: 0
-      }
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
     },
     scales: {
-      x: {
-        border: {
-          display: false
-        },
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          color: 'rgba(255, 255, 255, 0.5)',
-          font: {
-            size: 12,
-            family: 'Manrope',
-          },
-          padding: 5,
-          maxRotation: 0,
-          minRotation: 0,
-        },
-      },
       y: {
-        position: 'left',
-        border: {
-          display: false
-        },
+        min: 0,
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: 'rgba(255, 255, 255, 0.05)',
           drawBorder: false,
-          lineWidth: 0.5,
         },
         ticks: {
           color: 'rgba(255, 255, 255, 0.5)',
           font: {
-            size: 12,
+            size: 10,
             family: 'Manrope',
           },
           padding: 10,
@@ -117,43 +89,42 @@ const OverviewChart = ({ isMobile }) => {
             if (value === 1600) return '1.6K';
             if (value === 2000) return '2K';
             return '';
+          }
+        },
+        border: {
+          display: false
+        }
+      },
+      x: {
+        grid: {
+          display: false,
+          drawBorder: false,
+        },
+        ticks: {
+          color: 'rgba(255, 255, 255, 0.5)',
+          font: {
+            size: 10,
+            family: 'Manrope',
           },
-          stepSize: 400,
+          padding: 5,
         },
-        min: 0,
-        max: 2000,
+        border: {
+          display: false
+        }
       },
     },
-    plugins: {
-      legend: {
-        display: false,
+    elements: {
+      point: {
+        radius: 0,
+        hoverRadius: 0,
       },
-      tooltip: {
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        titleFont: {
-          family: 'Manrope',
-          size: 13,
-        },
-        bodyFont: {
-          family: 'Manrope',
-          size: 12,
-        },
-        padding: 10,
-        cornerRadius: 4,
-        displayColors: true,
+      line: {
+        borderCapStyle: 'round',
       },
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index',
     },
   };
 
-  return (
-    <div className="w-full h-full">
-      <Line data={data} options={chartOptions} />
-    </div>
-  );
+  return <Line data={data} options={options} />;
 };
 
 export default OverviewChart; 
