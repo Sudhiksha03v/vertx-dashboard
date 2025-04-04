@@ -17,7 +17,7 @@ const Dashboard = ({ isMobile }) => {
         <div className={`${isMobile ? '' : 'px-[60px] py-[32px]'}`}>
           {/* Overview header - only shown on desktop */}
           {!isMobile && (
-            <h2 className="text-[28px] font-extrabold text-white mb-6 leading-[100%] tracking-[-0.04em]">
+            <h2 className="absolute top-[138px] left-[313px] text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">
               Overview
             </h2>
           )}
@@ -48,26 +48,26 @@ const Dashboard = ({ isMobile }) => {
           ) : (
             // Desktop layout - organized in sections
             <>
-              <div className="flex gap-6 mb-6">
+              <div className="mt-[58px]">
                 {/* Overview Graph Card */}
-                <div className="flex-1 h-[273px] border border-[#1D1D1D] rounded-lg bg-black p-4">
-                  <div className="flex justify-between items-center mb-5">
+                <div className="absolute top-[196px] left-[297px] w-[612px] h-[273px] border border-[#1D1D1D] rounded-lg bg-black">
+                  <div className="flex justify-between items-center p-4">
                     <div className="flex items-center gap-8">
                       <div>
-                        <div className="text-[32px] font-bold text-white">13.49K</div>
-                        <div className="text-green-500 text-xs">+469% (897)</div>
+                        <div className="absolute top-[238px] left-[313px] w-[98px] h-[44px] text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">13.49K</div>
+                        <div className="absolute top-[276px] left-[313px] text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%]">+469% (897)</div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 ml-[124px]">
                         <div className="w-2 h-2 rounded-full bg-purple-500"></div>
                         <div>
-                          <div className="text-[32px] font-bold text-white">3.49K</div>
-                          <div className="text-green-500 text-xs">+180% (497)</div>
+                          <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">3.49K</div>
+                          <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%]">+180% (497)</div>
                         </div>
                       </div>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 absolute top-[238px] right-[16px]">
                       <div className="relative">
-                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-sm">
+                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-[12px] font-semibold tracking-[-0.04em] leading-[100%] text-right">
                           <option>Visitors</option>
                           <option>Connections</option>
                         </select>
@@ -76,7 +76,7 @@ const Dashboard = ({ isMobile }) => {
                         </div>
                       </div>
                       <div className="relative">
-                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-sm">
+                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-[12px] font-semibold tracking-[-0.04em] leading-[100%] text-right">
                           <option>Last 30 days</option>
                           <option>Last 7 days</option>
                         </select>
@@ -85,7 +85,7 @@ const Dashboard = ({ isMobile }) => {
                         </div>
                       </div>
                       <div className="relative">
-                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-sm">
+                        <select className="appearance-none w-[130px] bg-black border border-[#1D1D1D] text-white py-2 px-3 rounded-md text-[12px] font-semibold tracking-[-0.04em] leading-[100%] text-right">
                           <option>Connections</option>
                           <option>Interactions</option>
                         </select>
@@ -95,17 +95,17 @@ const Dashboard = ({ isMobile }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="h-[190px]">
+                  <div className="absolute top-[280px] left-[0] w-full h-[189px]">
                     <OverviewChart isMobile={false} />
                   </div>
                 </div>
 
                 {/* Insights Card */}
-                <div className="w-[274px] h-[273px] border border-[#1D1D1D] rounded-lg bg-black p-4">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-white text-lg font-semibold">Insights</h3>
+                <div className="absolute top-[196px] left-[924px] w-[274px] h-[273px] border border-[#1D1D1D] rounded-lg bg-black">
+                  <div className="flex justify-between items-center p-4">
+                    <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
                     <div className="relative">
-                      <select className="appearance-none w-[100px] bg-black border border-[#1D1D1D] text-white py-1 px-2 rounded text-sm">
+                      <select className="appearance-none w-[100px] bg-black border border-[#1D1D1D] text-white py-1 px-2 rounded text-[12px] font-semibold tracking-[-0.04em] leading-[100%] text-right">
                         <option>Visitors</option>
                         <option>Connections</option>
                       </select>
@@ -116,23 +116,23 @@ const Dashboard = ({ isMobile }) => {
                   </div>
                   <InsightsCard isMobile={false} />
                 </div>
-              </div>
 
-              {/* Demographics Card */}
-              <div className="w-full h-[296px] border border-[#1D1D1D] rounded-lg bg-black p-4">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-white text-lg font-semibold">Demographics</h3>
-                  <div className="relative">
-                    <select className="appearance-none w-[100px] bg-black border border-[#1D1D1D] text-white py-1 px-2 rounded text-sm">
-                      <option>Visitors</option>
-                      <option>Connections</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                      <svg className="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                {/* Demographics Card */}
+                <div className="absolute top-[484px] left-[297px] w-[901px] h-[296px] border border-[#1D1D1D] rounded-lg bg-black">
+                  <div className="flex justify-between items-center p-4">
+                    <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
+                    <div className="relative">
+                      <select className="appearance-none w-[100px] bg-black border border-[#1D1D1D] text-white py-1 px-2 rounded text-[12px] font-semibold tracking-[-0.04em] leading-[100%] text-right">
+                        <option>Visitors</option>
+                        <option>Connections</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                        <svg className="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                      </div>
                     </div>
                   </div>
+                  <DemographicsCard isMobile={false} />
                 </div>
-                <DemographicsCard isMobile={false} />
               </div>
             </>
           )}
