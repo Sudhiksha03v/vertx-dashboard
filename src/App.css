@@ -1,4 +1,4 @@
-/* Base styling for the application */
+/* BASE STYLES */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 * {
@@ -23,7 +23,7 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Custom scrollbar styling */
+/*CUSTOM SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -42,13 +42,13 @@ body {
   background: #444;
 }
 
-/* Ensures canvas elements (charts) have proper text rendering */
+
 canvas {
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
 
-/* Handle browser transitions for smooth UI */
+
 @media (max-width: 768px) {
   .App {
     flex-direction: column;

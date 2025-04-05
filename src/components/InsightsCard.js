@@ -22,7 +22,9 @@ const InsightsCard = ({ isMobile }) => {
     <div className={`${isMobile ? 'p-4' : 'p-4'}`}>
       <div className={`${isMobile ? 'px-0' : 'px-2'} h-full flex flex-col`}>
         {isMobile ? (
-          // Mobile view - display side by side
+
+
+          // MOBILE VIEW
           <div className="flex justify-between">
             {items.map((item, index) => (
               <div key={index} className="w-1/2">
@@ -42,7 +44,7 @@ const InsightsCard = ({ isMobile }) => {
             ))}
           </div>
         ) : (
-          // Desktop view - stacked
+          // DESKTOP VIEW (STACK)
           <>
             {items.map((item, index) => (
               <div key={index} className={`${index !== 0 ? 'mt-5' : 'mt-0'}`}>

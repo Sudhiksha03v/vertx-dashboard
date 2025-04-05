@@ -9,10 +9,11 @@ const Profile = ({ isMobile }) => {
   
   return (
     <div className={`${isMobile ? 'w-full pb-20 bg-black' : 'h-screen bg-black overflow-auto font-manrope'}`}>
-      {/* Header component - desktop only */}
+
+      {/* HEADER COMPONENT - DESKTOP */}
       {!isMobile && <Header isProfilePage={true} />}
       
-      {/* Mobile header */}
+      {/* HEADER - MOBILE */}
       {isMobile && (
         <div className="fixed top-0 left-0 w-full bg-black py-4 px-5 flex justify-between items-center z-50 border-b border-[#1D1D1D]">
           <div className="w-8 h-8 rounded-full overflow-hidden">
@@ -29,7 +30,7 @@ const Profile = ({ isMobile }) => {
         </div>
       )}
 
-      {/* Mobile tabs */}
+      {/* MOBILE TABS */}
       {isMobile && (
         <div className="fixed top-[60px] left-0 w-full bg-black border-b border-[#1D1D1D] z-40">
           <div className="flex w-full overflow-x-auto no-scrollbar">
@@ -50,19 +51,20 @@ const Profile = ({ isMobile }) => {
         </div>
       )}
       
-      {/* Main content area - scrollable */}
+    
       {!isMobile ? (
         <div className={`fixed top-[100px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-100px)] overflow-y-auto bg-black`}>
           <div className="pt-[60px] px-[60px] pr-[80px] pb-[60px]">
-            {/* Profile Overview header */}
+          
             <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
               Overview
             </h2>
             
-            {/* User profile card */}
+            {/* USER CARD */}
             <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-8" style={{ height: "198.48px" }}>
               <div className="flex p-6">
-                {/* User avatar */}
+
+               
                 <div className="mr-6">
                   <div style={{ width: "120px", height: "120px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
                     <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
@@ -138,15 +140,17 @@ const Profile = ({ isMobile }) => {
               </div>
             </div>
             
-            {/* Two column layout for companies and experience */}
+            {/* COMPANIES AND EXPERIENCE CARDS */}
+
             <div className="flex gap-8">
-              {/* Founded Companies Card */}
+
+              {/* FOUNDED COMPANIES CARD*/}
               <div className="w-1/2 border border-[#1D1D1D] rounded-lg bg-black p-6" style={{ height: "380px" }}>
                 <h3 className="text-[18px] font-extrabold text-white mb-4">Founded Companies</h3>
                 
                 <div className="text-[64px] font-bold text-white mb-6">02</div>
                 
-                {/* Company 1 - Vertx */}
+                {/* COMPANY-1 */}
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-black flex items-center justify-center mr-3 border border-[#1D1D1D] rounded">
@@ -177,11 +181,11 @@ const Profile = ({ isMobile }) => {
                   <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
                 </div>
                 
-                {/* Company 2 - Generic Company */}
+                {/* COMPANY-2 */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
-                      {/* Empty white square for company logo */}
+                     
                     </div>
                     <div>
                       <div className="flex items-center">
@@ -206,39 +210,39 @@ const Profile = ({ isMobile }) => {
                 </div>
               </div>
               
-              {/* Experience Card */}
+              {/* EXPERIENCE CARD */}
               <div className="w-1/2 border border-[#1D1D1D] rounded-lg bg-black p-6" style={{ height: "380px" }}>
                 <h3 className="text-[18px] font-extrabold text-white mb-4">Experience</h3>
                 
                 <div className="text-[64px] font-bold text-white mb-6">03</div>
                 
-                {/* Experience 1 */}
+                {/* Experience-1 */}
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
-                      {/* Empty white square for company logo */}
+                      
                     </div>
                     <h4 className="text-[16px] font-bold text-white">Company 1</h4>
                   </div>
                   <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
                 </div>
                 
-                {/* Experience 2 */}
+                {/* Experience-2 */}
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
-                      {/* Empty white square for company logo */}
+                     
                     </div>
                     <h4 className="text-[16px] font-bold text-white">Company 2</h4>
                   </div>
                   <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
                 </div>
                 
-                {/* Experience 3 */}
+                {/* Experience-3 */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
-                      {/* Empty white square for company logo */}
+                    
                     </div>
                     <h4 className="text-[16px] font-bold text-white">Company 3</h4>
                   </div>
@@ -249,23 +253,26 @@ const Profile = ({ isMobile }) => {
           </div>
         </div>
       ) : (
-        /* Mobile layout */
+
+
+
+        /* MOBILE LAYOUT */
         <div className="pt-[122px] px-4 pb-20 bg-black">
           <h2 className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-6">
             Overview
           </h2>
           
-          {/* User profile card - Mobile */}
+          {/* USER PROFILE */}
           <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-6">
             <div className="flex flex-col p-5 pt-4 pb-6">
-              {/* User avatar */}
+              {/* avatar */}
               <div className="mb-3 flex justify-center">
                 <div style={{ width: "80px", height: "80px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
                   <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                 </div>
               </div>
               
-              {/* User info */}
+              {/*info */}
               <div className="text-center">
                 <div className="flex items-center justify-center mb-1">
                   <h2 className="text-white mr-2" style={{
@@ -275,7 +282,7 @@ const Profile = ({ isMobile }) => {
                     lineHeight: "100%",
                     letterSpacing: "0%"
                   }}>Mr A</h2>
-                  {/* Verified badge */}
+                 
                   <div style={{ width: "18px", height: "18px" }}>
                     <img src="/images/tick.jpg" alt="Verified" className="w-full h-full object-cover rounded-full" style={{ backgroundColor: "#0095F6" }} />
                   </div>
@@ -309,7 +316,7 @@ const Profile = ({ isMobile }) => {
                   </div>
                 </div>
                 
-                {/* Social icons */}
+                
                 <div className="flex justify-center space-x-5">
                   {/* LinkedIn */}
                   <a href="https://linkedin.com" className="block">
@@ -334,13 +341,13 @@ const Profile = ({ isMobile }) => {
             </div>
           </div>
           
-          {/* Founded Companies Card - Mobile */}
+          {/* Founded Companies - Mobile */}
           <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-5 mb-6 pb-8">
             <h3 className="text-[18px] font-extrabold text-white mb-3">Founded Companies</h3>
             
             <div className="text-[48px] font-bold text-white mb-3">02</div>
             
-            {/* Company 1 */}
+          
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <div className="w-9 h-9 bg-black flex items-center justify-center mr-3 border border-[#1D1D1D] rounded">
@@ -370,12 +377,11 @@ const Profile = ({ isMobile }) => {
               </div>
               <button className="text-[11px] text-gray-400">View Profile</button>
             </div>
-            
-            {/* Company 2 */}
+          
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <div className="w-9 h-9 bg-white flex items-center justify-center mr-3 rounded">
-                  {/* Empty white square for company logo */}
+                 
                 </div>
                 <div>
                   <div className="flex items-center">
@@ -406,33 +412,32 @@ const Profile = ({ isMobile }) => {
             
             <div className="text-[48px] font-bold text-white mb-3">03</div>
             
-            {/* Experience 1 */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <div className="w-9 h-9 bg-white flex items-center justify-center mr-3 rounded">
-                  {/* Empty white square for company logo */}
+                 
                 </div>
                 <h4 className="text-[15px] font-bold text-white">Company 1</h4>
               </div>
               <button className="text-[11px] text-gray-400">View Profile</button>
             </div>
             
-            {/* Experience 2 */}
+           
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <div className="w-9 h-9 bg-white flex items-center justify-center mr-3 rounded">
-                  {/* Empty white square for company logo */}
+                  
                 </div>
                 <h4 className="text-[15px] font-bold text-white">Company 2</h4>
               </div>
               <button className="text-[11px] text-gray-400">View Profile</button>
             </div>
             
-            {/* Experience 3 */}
+           
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <div className="w-9 h-9 bg-white flex items-center justify-center mr-3 rounded">
-                  {/* Empty white square for company logo */}
+                 
                 </div>
                 <h4 className="text-[15px] font-bold text-white">Company 3</h4>
               </div>
@@ -442,7 +447,7 @@ const Profile = ({ isMobile }) => {
         </div>
       )}
       
-      {/* Mobile bottom navigation */}
+      {/* BOTTOM NAVBAR - MOBILE */}
       {isMobile && <MobileNav onPageChange={() => {}} currentPage="profile" />}
     </div>
   );

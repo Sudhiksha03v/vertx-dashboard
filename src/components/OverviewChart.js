@@ -114,7 +114,7 @@ const OverviewChart = ({ isMobile }) => {
             family: 'Manrope',
           },
           padding: 5,
-          stepSize: 400, // Force steps at every 400 units
+          stepSize: 400, 
           callback: function(value) {
             if (value === 0) return '';
             if (value === 200) return '200';
@@ -125,7 +125,7 @@ const OverviewChart = ({ isMobile }) => {
             if (value === 2000) return '2K';
             return '';
           },
-          // Force inclusion of all values
+         
           display: true, 
           autoSkip: false,
           includeBounds: true
@@ -156,10 +156,10 @@ const OverviewChart = ({ isMobile }) => {
           },
           padding: 6,
           autoSkip: false,
-          maxRotation: 0, // Make labels horizontal
-          minRotation: 0, // Make labels horizontal
+          maxRotation: 0, 
+          minRotation: 0, 
           callback: function(val, index) {
-            // Only show the specific dates as in the reference image
+           
             const displayDates = ['Mar 1', 'Mar 5', 'Mar 10', 'Mar 15', 'Mar 20', 'Mar 25', 'Mar 30'];
             const label = this.getLabelForValue(val);
             return displayDates.includes(label) ? label : '';
@@ -187,18 +187,18 @@ const OverviewChart = ({ isMobile }) => {
     }
   };
 
-  // Mobile-specific adjustments
+ 
   if (isMobile) {
     options.scales.y.ticks.display = true;
     options.scales.x.ticks.display = true;
     options.maintainAspectRatio = true;
     options.aspectRatio = 1.75;
     
-    // Enhanced mobile styling for better visibility and zoom effect
+  
     options.scales.y = {
       ...options.scales.y,
-      min: 200,  // Start from 200 to zoom in
-      max: 1600, // Max at 1600 to show more detail
+      min: 200,  
+      max: 1600,
       grid: {
         display: false,
         drawBorder: false,
@@ -222,20 +222,20 @@ const OverviewChart = ({ isMobile }) => {
       }
     };
     
-    // Reduce padding to maximize chart area
+  
     options.layout = {
       padding: {
         left: 10,
-        right: 0,  // Reduced right padding to 0 (from 5)
+        right: 0, 
         top: 10,
         bottom: 20
       }
     };
     
-    // Enhanced lines for mobile
+    
     data.datasets = data.datasets.map(dataset => ({
       ...dataset,
-      borderWidth: 2.0,  // Thicker lines for better visibility
+      borderWidth: 2.0,  
     }));
   }
 

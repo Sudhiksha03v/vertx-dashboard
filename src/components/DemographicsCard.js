@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const DemographicsCard = ({ isMobile }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   
-  // Country data with updated colors
   const countries = [
     { id: 1, name: 'India', percentage: 40, color: '#4834D4', code: 'IN', flagSrc: '/images/india.jpg' },
     { id: 2, name: 'USA', percentage: 25, color: '#BD5302', code: 'US', flagSrc: '/images/usa.jpg' },
@@ -56,14 +55,17 @@ const DemographicsCard = ({ isMobile }) => {
       )}
 
       {isMobile ? (
-        // Mobile layout with flexbox column layout
+   
         <div className="flex flex-col">
-          {/* World Map for mobile */}
+
+
+          
+          {/* MOBILE WORLD MAP - RESPONSIVE */}
           <div className="w-full h-[150px] relative">
             <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-contain opacity-75 mt-[-15px]" />
           </div>
           
-          {/* Countries tag indicator for mobile */}
+        
           <div className="w-full flex justify-center mb-4">
             <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
               <div className="flex items-center">
@@ -85,21 +87,21 @@ const DemographicsCard = ({ isMobile }) => {
             </div>
           </div>
           
-          {/* Country stats for mobile */}
+          {/* COUNTRY STATS - MOBILE */}
           <div className="w-full px-0 relative z-10">
             {countries.map((country, index) => (
               <div key={country.id} className="mb-3">
                 <div className="flex items-center">
-                  {/* Flag with exact dimensions */}
+                 
                   <div className="w-[32px] h-[25px] rounded-[2px] overflow-hidden mr-3">
                     <img src={country.flagSrc} alt={`${country.name} Flag`} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-grow">
-                    {/* Country name with exact font specs */}
+                    
                     <div className="text-white font-semibold text-[16px] leading-[100%] tracking-[-0.04em] font-manrope">
                       {country.name}
                     </div>
-                    {/* Color bar with exact dimensions */}
+                    
                     <div className="mt-2 relative h-[9px] w-full pr-[25px]">
                       <div className="w-full h-full bg-[#1D1D1D] rounded-[100px]"></div>
                       <div 
@@ -118,10 +120,10 @@ const DemographicsCard = ({ isMobile }) => {
               </div>
             ))}
             
-            {/* Horizontal line with exact specs */}
+           
             <div className="w-full mt-2 h-[1px] bg-[#1D1D1D]"></div>
             
-            {/* View all countries link */}
+            
             <div className="w-full mt-4">
               <div className="flex justify-end">
                 <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
@@ -133,9 +135,9 @@ const DemographicsCard = ({ isMobile }) => {
           </div>
         </div>
       ) : (
-        // Desktop layout remains the same
+        
         <div className="w-full relative flex flex-wrap">
-          {/* World Map - full size and positioned correctly */}
+          
           <div className="w-[68%] h-[240px] relative">
             <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-contain opacity-75 mt-[-35px]" />
           </div>
@@ -145,16 +147,23 @@ const DemographicsCard = ({ isMobile }) => {
             {countries.map((country, index) => (
               <div key={country.id} className="mb-5">
                 <div className="flex items-center">
-                  {/* Flag with exact dimensions */}
+
+
+
+                  {/* FLAGS */}
                   <div className="w-[40px] h-[28px] rounded-[2px] overflow-hidden mr-3">
                     <img src={country.flagSrc} alt={`${country.name} Flag`} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-grow">
-                    {/* Country name with exact font specs */}
+
+
+                   
                     <div className="text-white font-semibold text-[16px] leading-[100%] tracking-[-0.04em] font-manrope">
                       {country.name}
                     </div>
-                    {/* Color bar with exact dimensions */}
+
+
+                    {/* COLOUR BARS */}
                     <div className="mt-2 relative h-[9px] w-[189px]">
                       <div className="w-full h-full bg-[#1D1D1D] rounded-[100px]"></div>
                       <div 
@@ -173,10 +182,10 @@ const DemographicsCard = ({ isMobile }) => {
               </div>
             ))}
             
-            {/* Horizontal line with exact specs */}
+        
             <div className="mt-4 w-[245px] h-[1px] bg-[#1D1D1D] my-6"></div>
             
-            {/* View all countries link with exact specs - right aligned to match reference */}
+          
             <div className="w-[245px] mt-6">
               <div className="flex justify-end">
                 <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
@@ -189,7 +198,7 @@ const DemographicsCard = ({ isMobile }) => {
         </div>
       )}
 
-      {/* Country indicators for desktop view only */}
+      
       {!isMobile && (
         <div className="absolute bottom-5 left-[24px]">
           <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2">

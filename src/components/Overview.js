@@ -11,7 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 
-// Register ChartJS components
+// CHART-JS COMPONENTS
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,23 +27,23 @@ const Overview = () => {
   const [metric, setMetric] = useState('Visitors');
   const [isMobile, setIsMobile] = useState(false);
   
-  // Check if we're on mobile view
+  
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
     
-    // Initial check
+   
     checkIfMobile();
     
-    // Add event listener
+    // EVENT LISTENER
     window.addEventListener('resize', checkIfMobile);
     
     // Clean up
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
   
-  // Sample data for chart
+  // SAMPLE CHART DATA
   const labels = ['Mar 1', 'Mar 5', 'Mar 10', 'Mar 15', 'Mar 20', 'Mar 25', 'Mar 30'];
   const data = {
     labels,
@@ -88,7 +88,7 @@ const Overview = () => {
     },
   };
 
-  // Dropdown options
+  // DROPDOWN OPTIONS
   const timeOptions = ['Today', 'Yesterday', 'This week', 'Last week', 'Last 7 days', 'Last 30 days'];
   const metricOptions = ['Visitors', 'Connections', 'Interactions', 'Impressions'];
   
@@ -101,7 +101,7 @@ const Overview = () => {
     <div className="space-y-6">
       {!isMobile && <h2 className="text-2xl font-bold mb-6">Overview</h2>}
       
-      {/* Chart section */}
+      {/* CHART SECTION*/}
       <div className="bg-[#171717] rounded-lg p-4 sm:p-6">
         {isMobile && (
           <div className="mb-4">
@@ -141,7 +141,7 @@ const Overview = () => {
         </div>
       </div>
       
-      {/* Insights section */}
+      {/* INSIGHTS SECTION*/}
       <div className="bg-[#171717] rounded-lg p-4 sm:p-6">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl font-semibold">Insights</h3>

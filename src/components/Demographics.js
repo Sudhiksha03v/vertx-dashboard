@@ -4,23 +4,23 @@ const Demographics = () => {
   const [metric, setMetric] = useState('Visitors');
   const [isMobile, setIsMobile] = useState(false);
   
-  // Check if we're on mobile view
+  
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
     
-    // Initial check
+   
     checkIfMobile();
     
-    // Add event listener
+    
     window.addEventListener('resize', checkIfMobile);
     
-    // Clean up
+    
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
   
-  // Demo data for country stats
+  
   const countries = [
     { name: 'India', percentage: 40, flagCode: 'in' },
     { name: 'USA', percentage: 25, flagCode: 'us' },
@@ -44,20 +44,20 @@ const Demographics = () => {
           </div>
         </div>
         
-        {/* World map visualization */}
+        {/* WORLD MAP */}
         <div className={`relative ${isMobile ? 'h-60' : 'h-72'} mb-6`}>
-          {/* Simple dotted world map background */}
+
           <div className="absolute inset-0 opacity-30 flex items-center justify-center">
             <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC41Ij48Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIvPjwvZz48L2c+PC9zdmc+')] bg-repeat"></div>
           </div>
 
-          {/* Map highlights and pointers */}
+
           <div className="absolute top-1/4 left-1/4 w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-purple-600"></div>
           <div className="absolute top-1/3 left-1/5 w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-orange-500"></div>
           <div className="absolute top-1/3 left-1/3 w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-400"></div>
           <div className="absolute top-2/5 right-1/3 w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
 
-          {/* Highlighted user */}
+   
           <div className="absolute top-1/4 right-1/3">
             <div className="bg-red-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-md text-xs">
               Sowmya Kota
@@ -69,13 +69,13 @@ const Demographics = () => {
             </div>
           </div>
           
-          {/* Avatar circle */}
+          {/* AVATAR */}
           <div className="absolute bottom-4 right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-700 flex items-center justify-center text-white text-base sm:text-xl">
             A
           </div>
         </div>
         
-        {/* Country indicators */}
+        {/* COUNTRIES */}
         <div className="flex flex-wrap gap-2 sm:gap-4 mb-6 text-xs sm:text-sm">
           <div className="flex items-center">
             <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-purple-600 mr-1 sm:mr-2"></span>
@@ -95,7 +95,7 @@ const Demographics = () => {
           </div>
         </div>
         
-        {/* Country stats */}
+        {/* COUNTRY STATS*/}
         <div className="space-y-4 text-sm sm:text-base">
           {countries.map((country) => (
             <div key={country.name} className="flex items-center justify-between">

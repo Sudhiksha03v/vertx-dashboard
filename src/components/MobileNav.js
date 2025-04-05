@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MobileNav = ({ onPageChange, currentPage = 'analytics' }) => {
-  // Navigation items with image icons from public/images folder
+  
   const navItems = [
     { 
       id: 'dashboard', 

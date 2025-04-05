@@ -3,15 +3,16 @@ import React, { useState } from 'react';
 const Header = ({ isProfilePage }) => {
   const [activeTab, setActiveTab] = useState('Overview');
   
-  // Define tabs based on the current page
+  //TABS
   const tabs = isProfilePage 
     ? ['Overview', 'Portfolio', 'Experience', 'Media'] 
     : ['Overview', 'Demographics'];
   
   return (
     <>
-      {/* Top bar with Analytics, Activity, and Logout */}
+      {/* TOP NAVBAR*/}
       <div className="fixed top-0 left-0 right-0 font-manrope z-10">
+
         {/* Analytics section */}
         <div className="fixed top-0 left-[240px] h-[50px] w-[calc(100%-480px)] bg-black border-b border-r border-[#1D1D1D] flex items-center">
           <div className="ml-[20px] text-white font-medium">Analytics</div>
@@ -28,7 +29,7 @@ const Header = ({ isProfilePage }) => {
         </div>
       </div>
       
-      {/* Second bar with tabs */}
+      {/* SUB TOPNAVBAR */}
       <div className="fixed top-[50px] left-[240px] right-0 bg-black z-10">
         <div className="flex w-full border-b border-[#1D1D1D]">
           {isProfilePage ? (

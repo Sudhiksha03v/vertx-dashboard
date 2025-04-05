@@ -1,3 +1,5 @@
+VertexLabs. Inc
+
 ## Technologies Used
 
 - React.js

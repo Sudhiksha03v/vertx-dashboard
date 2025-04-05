@@ -10,9 +10,9 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [addOpen, setAddOpen] = useState(false);
 
-  // Add smooth scrolling effect
+  // SCROLL EFFECT
   useEffect(() => {
-    // Only apply smooth scrolling to the html element
+    
     if (typeof document !== 'undefined') {
       document.documentElement.style.scrollBehavior = 'smooth';
     }
@@ -26,28 +26,29 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
 
   return (
     <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`}>
-      {/* Header component - only for desktop */}
+      {/* HEADER DESKTOP */}
       {!isMobile && <Header isProfilePage={false} />}
       
-      {/* Main content area - scrollable */}
       <div className={`${isMobile ? '' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
         <div className={`${isMobile ? '' : 'pt-[100px] px-[60px] pr-[80px] pb-[60px]'}`}>
-          {/* Overview header - only shown on desktop, with exactly the same styling as in Profile */}
           {!isMobile && (
             <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
               Overview
             </h2>
           )}
           
-          {/* Content layout - different for mobile and desktop */}
           {isMobile ? (
             <>
               <MobileHeader />
-              {/* Adjusted spacing at the top for mobile view to match reference */}
               <div className="pt-[130px] px-4">
-                {/* Mobile layout - stacked sections with improved spacing */}
+
+
+
+                {/* MOBILE LAYOUT */}
                 <div className="space-y-6 pb-20">
-                  {/* Overview Chart - shows total at the top on mobile */}
+
+
+                  {/* OVERVIEW CHART */}
                   <div className="bg-black rounded-lg p-4 pt-6 pl-4 pr-0 border border-[#1D1D1D]">
                     <div className="flex items-start">
                       <div className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
@@ -61,7 +62,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                     </div>
                   </div>
                   
-                  {/* Insights Card */}
+                  {/* INSIGHTS CARD */}
                   <div className="bg-black rounded-lg border border-[#1D1D1D]">
                     <div className="flex justify-between items-center p-4">
                       <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
@@ -87,7 +88,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                     <InsightsCard isMobile={true} />
                   </div>
                   
-                  {/* Demographics Card */}
+                  {/* DEMOGRAPHICS CARD */}
                   <div className="bg-black rounded-lg border border-[#1D1D1D]">
                     <div className="flex justify-between items-center p-5">
                       <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
@@ -116,18 +117,20 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                 </div>
               </div>
               
-              {/* Mobile Navigation */}
+              {/* MOBILE NAV */}
               <MobileNav onPageChange={onPageChange} currentPage={currentPage || 'analytics'} />
             </>
           ) : (
-            // Desktop layout - card layout with flex
+            
             <div className="flex flex-col gap-10">
-              {/* Top row with Overview and Insights cards */}
+              
               <div className="flex gap-8">
-                {/* Overview Graph Card */}
+                
                 <div className="w-[calc(100%-300px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
                   <div className="flex items-center justify-between pt-4 px-5 pb-0">
-                    {/* Dropdowns */}
+
+
+                    {/* DROPDOWNS */}
                     <div className="flex gap-2">
                       <div className="relative inline-block">
                         <div 
@@ -171,7 +174,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                         )}
                       </div>
                       
-                      {/* + Add dropdown */}
+                      {/* + ADD dropdown */}
                       <div className="relative ml-2">
                         <button 
                           onClick={() => setAddOpen(!addOpen)} 
@@ -193,7 +196,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                     </div>
                   </div>
                   
-                  {/* Stats */}
+                  {/* STATS */}
                   <div className="flex flex-row justify-start px-5 mt-3 mb-5 w-[500px] gap-4">
                     <div className="flex items-center gap-2">
                       <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
@@ -216,13 +219,13 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                     </div>
                   </div>
                   
-                  {/* Chart */}
+                  {/* CHARTS */}
                   <div className="h-[180px] w-full mt-0">
                     <OverviewChart isMobile={false} />
                   </div>
                 </div>
 
-                {/* Insights Card */}
+                {/* INSIGHTS CARD */}
                 <div className="w-[280px] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
                   <div className="flex justify-between items-center p-4">
                     <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
@@ -249,7 +252,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                 </div>
               </div>
 
-              {/* Demographics Card */}
+              {/* DEMOGRAPHICS CARD */}
               <div className="w-full border border-[#1D1D1D] rounded-lg bg-black overflow-hidden">
                 <div className="flex justify-between items-center p-5">
                   <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
