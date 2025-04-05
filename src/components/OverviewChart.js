@@ -180,7 +180,7 @@ const OverviewChart = ({ isMobile }) => {
     layout: {
       padding: {
         left: 20,
-        right: 20,
+        right: 30,
         top: 20,
         bottom: 30
       }

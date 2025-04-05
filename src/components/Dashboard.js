@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import OverviewChart from './OverviewChart';
 import InsightsCard from './InsightsCard';
 import DemographicsCard from './DemographicsCard';
 import MobileHeader from './MobileHeader';
-// eslint-disable-next-line no-unused-vars
 import MobileNav from './MobileNav';
 
-const Dashboard = ({ isMobile }) => {
+const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [addOpen, setAddOpen] = useState(false);
 
+  // Add smooth scrolling effect
+  useEffect(() => {
+    // Only apply smooth scrolling to the html element
+    if (typeof document !== 'undefined') {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+    
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.documentElement.style.scrollBehavior = '';
+      }
+    };
+  }, []);
+
   return (
     <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`}>
-      {/* Header component - different for mobile and desktop */}
-      {isMobile ? <MobileHeader /> : <Header isProfilePage={false} />}
+      {/* Header component - only for desktop */}
+      {!isMobile && <Header isProfilePage={false} />}
       
       {/* Main content area - scrollable */}
-      <div className={`${isMobile ? 'pt-[118px] px-4' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
+      <div className={`${isMobile ? '' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
         <div className={`${isMobile ? '' : 'pt-[100px] px-[60px] pr-[80px] pb-[60px]'}`}>
           {/* Overview header - only shown on desktop, with exactly the same styling as in Profile */}
           {!isMobile && (
@@ -28,87 +41,82 @@ const Dashboard = ({ isMobile }) => {
           
           {/* Content layout - different for mobile and desktop */}
           {isMobile ? (
-            // Mobile layout - stacked sections with better spacing
-            <div className="space-y-8 pb-20 pt-8">
-              {/* Company Logo - center aligned */}
-              <div className="flex justify-center mb-6">
-                <img src="/images/company-logo.jpg" alt="Company Logo" className="h-12" />
-              </div>
-              
-              {/* Overview Chart - shows total at the top on mobile */}
-              <div className="bg-black rounded-lg p-4 border border-[#1D1D1D]">
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center">
-                    <img src="/images/user-avatar.jpg" alt="User Profile" className="w-8 h-8 rounded-full mr-3" />
+            <>
+              <MobileHeader />
+              {/* Adjusted spacing at the top for mobile view to match reference */}
+              <div className="pt-[110px] px-4">
+                {/* Mobile layout - stacked sections with improved spacing */}
+                <div className="space-y-6 pb-20">
+                  {/* Overview Chart - shows total at the top on mobile */}
+                  <div className="bg-black rounded-lg p-4 border border-[#1D1D1D]">
+                    <div className="flex items-start">
+                      <div className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
+                      <div className="flex flex-col ml-2 justify-center">
+                        <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+469%</span>
+                        <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(897)</span>
+                      </div>
+                    </div>
+                    <div className="h-[200px] mt-4 w-full overflow-hidden">
+                      <OverviewChart isMobile={true} />
+                    </div>
                   </div>
                   
-                  <div className="relative inline-block">
-                    <div 
-                      onClick={() => setDropdownOpen(dropdownOpen === 'mobileVisitors' ? null : 'mobileVisitors')}
-                      className="appearance-none bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
-                      style={{ width: '108px', height: '24px' }}
-                    >
-                      <span className="mr-3">Visitors</span>
-                      <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
-                    </div>
-                    {dropdownOpen === 'mobileVisitors' && (
-                      <div className="absolute right-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                        <div className="py-0">
-                          <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
-                          <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                  {/* Insights Card */}
+                  <div className="bg-black rounded-lg border border-[#1D1D1D]">
+                    <div className="flex justify-between items-center p-4">
+                      <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
+                      <div className="relative inline-block">
+                        <div 
+                          onClick={() => setDropdownOpen(dropdownOpen === 'mobileInsightsVisitors' ? null : 'mobileInsightsVisitors')}
+                          className="appearance-none bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
+                          style={{ width: '108px', height: '24px' }}
+                        >
+                          <span className="mr-3">Visitors</span>
+                          <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
                         </div>
+                        {dropdownOpen === 'mobileInsightsVisitors' && (
+                          <div className="absolute right-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
+                    <InsightsCard isMobile={true} />
                   </div>
-                </div>
-                
-                <div className="flex items-start mb-4">
-                  <div className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
-                  <div className="flex flex-col ml-2 justify-center">
-                    <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+469%</span>
-                    <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(897)</span>
+                  
+                  {/* Demographics Card */}
+                  <div className="bg-black rounded-lg border border-[#1D1D1D]">
+                    <div className="flex justify-between items-center p-5">
+                      <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
+                      <div className="relative inline-block">
+                        <div 
+                          onClick={() => setDropdownOpen(dropdownOpen === 'demogVisitors' ? null : 'demogVisitors')}
+                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
+                        >
+                          <span className="mr-3">Visitors</span>
+                          <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
+                        </div>
+                        {dropdownOpen === 'demogVisitors' && (
+                          <div className="absolute right-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <DemographicsCard isMobile={true} />
                   </div>
-                </div>
-                
-                <div className="h-[200px] mt-4 w-full overflow-hidden">
-                  <OverviewChart isMobile={true} />
                 </div>
               </div>
               
-              {/* Insights Card */}
-              <div className="bg-black rounded-lg border border-[#1D1D1D]">
-                <div className="flex justify-between items-center p-4">
-                  <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
-                  <div className="relative inline-block">
-                    <div 
-                      onClick={() => setDropdownOpen(dropdownOpen === 'mobileInsightsVisitors' ? null : 'mobileInsightsVisitors')}
-                      className="appearance-none bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
-                      style={{ width: '87px', height: '24px' }}
-                    >
-                      <span className="mr-3">Visitors</span>
-                      <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-white absolute right-3"></div>
-                    </div>
-                    {dropdownOpen === 'mobileInsightsVisitors' && (
-                      <div className="absolute right-0 mt-1 w-[87px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                        <div className="py-0">
-                          <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
-                          <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <InsightsCard isMobile={true} />
-              </div>
-              
-              {/* Demographics Card */}
-              <div className="bg-black rounded-lg border border-[#1D1D1D]">
-                <div className="flex justify-between items-center p-5">
-                  <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
-                </div>
-                <DemographicsCard isMobile={true} />
-              </div>
-            </div>
+              {/* Mobile Navigation */}
+              <MobileNav onPageChange={onPageChange} currentPage={currentPage || 'analytics'} />
+            </>
           ) : (
             // Desktop layout - card layout with flex
             <div className="flex flex-col gap-10">

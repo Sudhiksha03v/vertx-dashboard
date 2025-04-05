@@ -23,11 +23,11 @@ const InsightsCard = ({ isMobile }) => {
       <div className={`${isMobile ? 'px-0' : 'px-2'} h-full flex flex-col`}>
         {isMobile ? (
           // Mobile view - display side by side
-          <div className="flex justify-between px-4">
+          <div className="flex justify-between">
             {items.map((item, index) => (
-              <div key={index} className="w-1/2 pr-2">
+              <div key={index} className="w-1/2">
                 <h4 className="text-[16px] text-white font-semibold font-manrope tracking-[-0.04em] leading-[100%]">{item.title}</h4>
-                <div className="flex items-start mt-2">
+                <div className="flex items-start mt-1">
                   <div className="text-[26px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">{item.value}</div>
                   <div className="ml-2 flex flex-col mt-1">
                     <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">

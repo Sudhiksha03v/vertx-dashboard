@@ -12,40 +12,63 @@ const DemographicsCard = ({ isMobile }) => {
   ];
 
   return (
-    <div className={`${isMobile ? 'p-4 pt-2 pb-8' : 'p-5 pt-0 pb-4'} relative h-[296px]`}>
-      {/* Visitors dropdown positioned clearly above content */}
-      <div className={`relative inline-block ${isMobile ? 'mb-4 ml-0' : 'mb-2 ml-2'} z-10`}>
-        <div 
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
-        >
-          <span className="mr-3">Visitors</span>
-          <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
-        </div>
-        {dropdownOpen && (
-          <div className="absolute left-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
-            <div className="py-0">
-              <div className="block px-4 py-1.5 text-white text-[12px] font-semibold">Visitors</div>
-              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
-            </div>
+    <div className={`${isMobile ? 'p-4 pt-0 pb-4' : 'p-5 pt-0 pb-4'} relative h-[296px]`}>
+      {!isMobile && (
+        <div className="relative inline-block mb-2 ml-4 z-10">
+          <div 
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+          >
+            <span className="mr-3">Visitors</span>
+            <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
           </div>
-        )}
-      </div>
+          {dropdownOpen && (
+            <div className="absolute left-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
+              <div className="py-0">
+                <div className="block px-4 py-1.5 text-white text-[12px] font-semibold">Visitors</div>
+                <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {isMobile && (
+        <div className="relative mb-4 z-10">
+          <div className="relative inline-block">
+            <div 
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+            >
+              <span className="mr-3">Visitors</span>
+              <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
+            </div>
+            {dropdownOpen && (
+              <div className="absolute left-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                <div className="py-0">
+                  <div className="block px-4 py-1.5 text-white text-[12px] font-semibold">Visitors</div>
+                  <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Main content layout */}
       <div className="w-full relative flex flex-wrap">
         {/* World Map - full size and positioned correctly */}
-        <div className={`${isMobile ? 'w-full h-[220px]' : 'w-[72%] h-[280px]'} relative`}>
+        <div className={`${isMobile ? 'w-full' : 'w-[68%]'} h-[240px] relative`}>
           <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-contain opacity-75 mt-[-35px]" />
         </div>
 
         {/* Country stats on right side - exact positioning and styling */}
-        <div className={`${isMobile ? 'w-full mt-2 flex flex-col items-center' : 'w-[28%] pl-4 mt-[-40px]'}`}>
+        <div className={`${isMobile ? 'w-full mt-4 px-0' : 'w-[32%] pl-4 mt-[-15px]'}`}>
           {countries.map((country, index) => (
-            <div key={country.id} className={`${isMobile ? 'w-full flex justify-center' : ''} ${isMobile ? 'mb-4' : 'mb-6'}`}>
+            <div key={country.id} className={`${isMobile ? 'mb-6' : 'mb-4'}`}>
               <div className="flex items-center">
                 {/* Flag with exact dimensions */}
-                <div className="w-[40px] h-[28px] rounded-[2px] overflow-hidden mr-3">
+                <div className={`${isMobile ? 'w-[32px] h-[25px]' : 'w-[40px] h-[28px]'} rounded-[2px] overflow-hidden mr-3`}>
                   <img src={country.flagSrc} alt={`${country.name} Flag`} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-grow">
@@ -54,7 +77,7 @@ const DemographicsCard = ({ isMobile }) => {
                     {country.name}
                   </div>
                   {/* Color bar with exact dimensions */}
-                  <div className={`mt-2 relative h-[9px] ${isMobile ? 'w-[200px]' : 'w-[189px]'}`}>
+                  <div className={`mt-2 relative h-[9px] ${isMobile ? 'w-full pr-[25px]' : 'w-[189px]'}`}>
                     <div className="w-full h-full bg-[#1D1D1D] rounded-[100px]"></div>
                     <div 
                       className="absolute top-0 left-0 h-full rounded-[100px]" 
@@ -73,10 +96,10 @@ const DemographicsCard = ({ isMobile }) => {
           ))}
           
           {/* Horizontal line with exact specs */}
-          <div className={`${isMobile ? 'w-[200px] mt-4' : 'mt-8 w-[245px]'} h-[1px] bg-[#1D1D1D]`}></div>
+          <div className={`${isMobile ? 'w-full mt-2' : 'mt-2 w-[245px]'} h-[1px] bg-[#1D1D1D]`}></div>
           
           {/* View all countries link with exact specs - right aligned to match reference */}
-          <div className={`${isMobile ? 'w-[200px]' : 'w-[245px]'} mt-5`}>
+          <div className={`${isMobile ? 'w-full' : 'w-[245px]'} mt-3`}>
             <div className="flex justify-end">
               <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
                 View all countries
@@ -87,25 +110,50 @@ const DemographicsCard = ({ isMobile }) => {
         </div>
       </div>
 
-      {/* Country indicators below map with exact positioning */}
-      <div className={`${isMobile ? 'relative mt-8 mx-auto' : 'absolute bottom-10'} ${isMobile ? 'w-[280px]' : 'left-[20px] w-[294px]'} h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2`}>
-        <div className="flex items-center">
-          <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
-          <span className="text-white text-xs">India</span>
+      {/* Country indicators */}
+      {isMobile ? (
+        <div className="absolute bottom-[-18px] w-full flex justify-center">
+          <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
+              <span className="text-white text-xs">India</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#BD5302] mr-2"></div>
+              <span className="text-white text-xs">USA</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#E9C16B] mr-2"></div>
+              <span className="text-white text-xs">CANADA</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#579560] mr-2"></div>
+              <span className="text-white text-xs">UAE</span>
+            </div>
+          </div>
         </div>
-        <div className="flex items-center">
-          <div className="w-3 h-3 rounded-full bg-[#BD5302] mr-2"></div>
-          <span className="text-white text-xs">USA</span>
+      ) : (
+        <div className="absolute bottom-5 left-[24px]">
+          <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2">
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
+              <span className="text-white text-xs">India</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#BD5302] mr-2"></div>
+              <span className="text-white text-xs">USA</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#E9C16B] mr-2"></div>
+              <span className="text-white text-xs">CANADA</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-[#579560] mr-2"></div>
+              <span className="text-white text-xs">UAE</span>
+            </div>
+          </div>
         </div>
-        <div className="flex items-center">
-          <div className="w-3 h-3 rounded-full bg-[#E9C16B] mr-2"></div>
-          <span className="text-white text-xs">CANADA</span>
-        </div>
-        <div className="flex items-center">
-          <div className="w-3 h-3 rounded-full bg-[#579560] mr-2"></div>
-          <span className="text-white text-xs">UAE</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

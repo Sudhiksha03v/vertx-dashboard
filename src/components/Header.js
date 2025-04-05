@@ -29,23 +29,66 @@ const Header = ({ isProfilePage }) => {
       </div>
       
       {/* Second bar with tabs */}
-      <div className="fixed top-[50px] left-[240px] right-0 h-[50px] bg-black border-b border-[#1D1D1D] flex z-10">
-        {/* Tabs */}
-        {tabs.map((tab) => (
-          <div 
-            key={tab}
-            className={`h-[50px] px-6 border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
-              activeTab === tab ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
-            }`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </div>
-        ))}
-        
-        {/* More section in corner - aligned with Logout button */}
-        <div className="h-[50px] w-[120px] px-6 ml-auto border-l border-[#1D1D1D] flex items-center justify-center text-white cursor-pointer hover:text-gray-300">
-          More
+      <div className="fixed top-[50px] left-[240px] right-0 bg-black z-10">
+        <div className="flex w-full border-b border-[#1D1D1D]">
+          {isProfilePage ? (
+            <>
+              <div 
+                className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                  activeTab === 'Overview' ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+                }`}
+                onClick={() => setActiveTab('Overview')}
+              >
+                Overview
+              </div>
+              <div 
+                className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                  activeTab === 'Portfolio' ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+                }`}
+                onClick={() => setActiveTab('Portfolio')}
+              >
+                Portfolio
+              </div>
+              <div 
+                className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                  activeTab === 'Experience' ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+                }`}
+                onClick={() => setActiveTab('Experience')}
+              >
+                Experience
+              </div>
+              <div 
+                className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                  activeTab === 'Media' ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+                }`}
+                onClick={() => setActiveTab('Media')}
+              >
+                Media
+              </div>
+              <div className="flex-grow"></div>
+              <div className="h-[50px] w-[120px] border-l border-[#1D1D1D] flex items-center justify-center text-white cursor-pointer">
+                More
+              </div>
+            </>
+          ) : (
+            <>
+              {tabs.map((tab) => (
+                <div 
+                  key={tab}
+                  className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                    activeTab === tab ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </div>
+              ))}
+              <div className="flex-grow"></div>
+              <div className="h-[50px] w-[120px] border-l border-[#1D1D1D] flex items-center justify-center text-white cursor-pointer">
+                More
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
