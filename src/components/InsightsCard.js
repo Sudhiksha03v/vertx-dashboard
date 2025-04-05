@@ -19,14 +19,14 @@ const InsightsCard = ({ isMobile }) => {
   ];
 
   return (
-    <div className="p-4">
-      <div className="px-2">
+    <div className={`${isMobile ? 'p-4' : 'p-4'}`}>
+      <div className={`${isMobile ? 'px-0' : 'px-2'} h-full flex flex-col`}>
         {items.map((item, index) => (
-          <div key={index} className={`${index !== 0 ? 'mt-8' : 'mt-0'}`}>
+          <div key={index} className={`${index !== 0 ? 'mt-5' : 'mt-0'}`}>
             <h4 className="text-[16px] text-white font-semibold font-manrope tracking-[-0.04em] leading-[100%]">{item.title}</h4>
-            <div className="flex items-start mt-2">
+            <div className="flex items-start mt-1">
               <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">{item.value}</div>
-              <div className="ml-2 flex flex-col mt-2">
+              <div className="ml-2 flex flex-col mt-1">
                 <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">
                   {item.change}
                 </span>
@@ -38,8 +38,8 @@ const InsightsCard = ({ isMobile }) => {
           </div>
         ))}
         
-        <div className="mt-7 pt-4 border-t border-[#1D1D1D] flex justify-end w-full">
-          <button className="flex items-center text-[10px] text-white font-semibold font-manrope tracking-[0%] leading-[100%] hover:text-gray-300 transition-colors">
+        <div className={`${isMobile ? 'mt-6' : 'mt-12'} pt-4 border-t border-[#1D1D1D] flex justify-end w-full`}>
+          <button className="flex items-center text-[10px] text-white font-semibold font-manrope tracking-[0%] leading-[100%] hover:text-gray-300 transition-colors mt-3">
             View detailed insights
             <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
