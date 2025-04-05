@@ -28,17 +28,48 @@ const Dashboard = ({ isMobile }) => {
           
           {/* Content layout - different for mobile and desktop */}
           {isMobile ? (
-            // Mobile layout - stacked sections
-            <div className="space-y-6 pb-8">
+            // Mobile layout - stacked sections with better spacing
+            <div className="space-y-8 pb-20 pt-8">
+              {/* Company Logo - center aligned */}
+              <div className="flex justify-center mb-6">
+                <img src="/images/company-logo.jpg" alt="Company Logo" className="h-12" />
+              </div>
+              
               {/* Overview Chart - shows total at the top on mobile */}
               <div className="bg-black rounded-lg p-4 border border-[#1D1D1D]">
-                <div className="flex items-start">
+                <div className="flex justify-between items-center mb-4">
+                  <div className="flex items-center">
+                    <img src="/images/user-avatar.jpg" alt="User Profile" className="w-8 h-8 rounded-full mr-3" />
+                  </div>
+                  
+                  <div className="relative inline-block">
+                    <div 
+                      onClick={() => setDropdownOpen(dropdownOpen === 'mobileVisitors' ? null : 'mobileVisitors')}
+                      className="appearance-none bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                      style={{ width: '108px', height: '24px' }}
+                    >
+                      <span className="mr-3">Visitors</span>
+                      <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-white absolute right-3"></div>
+                    </div>
+                    {dropdownOpen === 'mobileVisitors' && (
+                      <div className="absolute right-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                        <div className="py-0">
+                          <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
+                          <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="flex items-start mb-4">
                   <div className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
                   <div className="flex flex-col ml-2 justify-center">
                     <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+469%</span>
-                    <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">(897)</span>
+                    <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(897)</span>
                   </div>
                 </div>
+                
                 <div className="h-[200px] mt-4 w-full overflow-hidden">
                   <OverviewChart isMobile={true} />
                 </div>
@@ -87,7 +118,7 @@ const Dashboard = ({ isMobile }) => {
                 <div className="w-[calc(100%-300px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
                   <div className="flex items-center justify-between pt-4 px-5 pb-0">
                     {/* Dropdowns */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-2">
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'visitors' ? null : 'visitors')}
@@ -99,10 +130,10 @@ const Dashboard = ({ isMobile }) => {
                         {dropdownOpen === 'visitors' && (
                           <div className="absolute left-0 mt-1 w-[108px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
                             <div className="py-0">
-                              <div className="block px-4 py-1.5 text-white text-[12px] font-semibold">Visitors</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Interactions</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Impressions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Visitors</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Interactions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Impressions</div>
                             </div>
                           </div>
                         )}
@@ -119,19 +150,19 @@ const Dashboard = ({ isMobile }) => {
                         {dropdownOpen === 'timeframe' && (
                           <div className="absolute left-0 mt-1 w-[130px] bg-[#0A0A0A] border border-[#1D1D1D] rounded-md shadow-lg z-10">
                             <div className="py-0">
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Today</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Yesterday</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">This week</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Last week</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Last 7 days</div>
-                              <div className="block px-4 py-1.5 text-white text-[12px] font-semibold">Last 30 days</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Today</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Yesterday</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">This week</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Last week</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Last 7 days</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Last 30 days</div>
                             </div>
                           </div>
                         )}
                       </div>
                       
-                      {/* Add dropdown with plus icon */}
-                      <div className="relative ml-3">
+                      {/* + Add dropdown */}
+                      <div className="relative ml-2">
                         <button 
                           onClick={() => setAddOpen(!addOpen)} 
                           className="flex items-center relative bg-black border border-[#1D1D1D] text-white py-1 px-3 pl-4 pr-4 rounded-full text-xs font-semibold tracking-[-0.04em] leading-[100%] h-[24px] w-[92px]"
@@ -142,9 +173,9 @@ const Dashboard = ({ isMobile }) => {
                         {addOpen && (
                           <div className="absolute right-0 mt-1 w-[120px] rounded-md shadow-lg bg-[#0A0A0A] border border-[#1D1D1D] z-20">
                             <div className="py-0">
-                              <div className="block px-4 py-1.5 text-white hover:bg-[#1D1D1D] text-[12px] font-semibold">Connections</div>
-                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] text-[12px] font-semibold">Interactions</div>
-                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] text-[12px] font-semibold">Impressions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Connections</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Interactions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] hover:bg-[#1D1D1D] hover:text-white text-[12px] font-semibold cursor-pointer">Impressions</div>
                             </div>
                           </div>
                         )}
@@ -153,28 +184,30 @@ const Dashboard = ({ isMobile }) => {
                   </div>
                   
                   {/* Stats */}
-                  <div className="flex flex-row gap-10 px-5 mt-2 mb-4">
-                    <div className="flex items-start">
+                  <div className="flex flex-row justify-start px-5 mt-3 mb-5 w-[500px] gap-4">
+                    <div className="flex items-center gap-2">
                       <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
-                      <div className="flex flex-col ml-2 justify-center">
+                      <div className="flex flex-col">
                         <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+469%</span>
-                        <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">(897)</span>
+                        <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(897)</span>
                       </div>
                     </div>
-                    <div className="flex items-start">
+                    
+                    <div className="flex items-center gap-2">
                       <div className="flex items-center">
+                        <div className="h-[24px] w-[1px] bg-[#1D1D1D] mr-3"></div>
                         <div className="w-[8px] h-[8px] rounded-full bg-[#C36DEE] mr-2"></div>
                         <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">3.49K</div>
                       </div>
-                      <div className="flex flex-col ml-2 justify-center">
+                      <div className="flex flex-col">
                         <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+180%</span>
-                        <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">(497)</span>
+                        <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(497)</span>
                       </div>
                     </div>
                   </div>
                   
                   {/* Chart */}
-                  <div className="h-[170px] w-full mt-0">
+                  <div className="h-[180px] w-full mt-0">
                     <OverviewChart isMobile={false} />
                   </div>
                 </div>
