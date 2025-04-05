@@ -44,11 +44,11 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
             <>
               <MobileHeader />
               {/* Adjusted spacing at the top for mobile view to match reference */}
-              <div className="pt-[110px] px-4">
+              <div className="pt-[130px] px-4">
                 {/* Mobile layout - stacked sections with improved spacing */}
                 <div className="space-y-6 pb-20">
                   {/* Overview Chart - shows total at the top on mobile */}
-                  <div className="bg-black rounded-lg p-4 border border-[#1D1D1D]">
+                  <div className="bg-black rounded-lg p-4 pt-6 pl-4 pr-0 border border-[#1D1D1D]">
                     <div className="flex items-start">
                       <div className="text-[24px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
                       <div className="flex flex-col ml-2 justify-center">
@@ -56,7 +56,7 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                         <span className="text-[#555555] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">(897)</span>
                       </div>
                     </div>
-                    <div className="h-[200px] mt-4 w-full overflow-hidden">
+                    <div className="h-[220px] mt-6 w-full overflow-hidden">
                       <OverviewChart isMobile={true} />
                     </div>
                   </div>
@@ -109,7 +109,9 @@ const Dashboard = ({ isMobile, onPageChange, currentPage }) => {
                         )}
                       </div>
                     </div>
-                    <DemographicsCard isMobile={true} />
+                    <div className="min-h-[320px]">
+                      <DemographicsCard isMobile={true} />
+                    </div>
                   </div>
                 </div>
               </div>

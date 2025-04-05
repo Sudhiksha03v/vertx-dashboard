@@ -8,7 +8,7 @@ const MobileHeader = () => {
     <>
       <div className="fixed top-0 left-0 right-0 z-20 bg-black border-b border-[#1D1D1D] h-[60px] flex items-center justify-between px-4">
         {/* User profile on left */}
-        <div className="w-8 h-8 rounded-full overflow-hidden">
+        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#1D1D1D]">
           <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
         </div>
         

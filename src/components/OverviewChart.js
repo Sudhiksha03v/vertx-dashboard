@@ -193,6 +193,50 @@ const OverviewChart = ({ isMobile }) => {
     options.scales.x.ticks.display = true;
     options.maintainAspectRatio = true;
     options.aspectRatio = 1.75;
+    
+    // Enhanced mobile styling for better visibility and zoom effect
+    options.scales.y = {
+      ...options.scales.y,
+      min: 200,  // Start from 200 to zoom in
+      max: 1600, // Max at 1600 to show more detail
+      grid: {
+        display: false,
+        drawBorder: false,
+      },
+      ticks: {
+        color: 'rgba(255, 255, 255, 0.5)',
+        font: {
+          size: 10,
+          family: 'Manrope',
+        },
+        padding: 5,
+        stepSize: 400,
+        callback: function(value) {
+          if (value === 400) return '400';
+          if (value === 800) return '800';
+          if (value === 1200) return '1.2K';
+          if (value === 1600) return '1.6K';
+          if (value === 2000) return '2K';
+          return '';
+        },
+      }
+    };
+    
+    // Reduce padding to maximize chart area
+    options.layout = {
+      padding: {
+        left: 10,
+        right: 0,  // Reduced right padding to 0 (from 5)
+        top: 10,
+        bottom: 20
+      }
+    };
+    
+    // Enhanced lines for mobile
+    data.datasets = data.datasets.map(dataset => ({
+      ...dataset,
+      borderWidth: 2.0,  // Thicker lines for better visibility
+    }));
   }
 
   return (

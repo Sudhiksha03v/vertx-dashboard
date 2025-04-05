@@ -58,34 +58,44 @@ const Profile = ({ isMobile }) => {
             </h2>
             
             {/* User profile card */}
-            <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-6 mb-8">
-              <div className="flex">
+            <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-8" style={{ height: "198.48px" }}>
+              <div className="flex p-6">
                 {/* User avatar */}
                 <div className="mr-6">
-                  <div className="w-[170px] h-[170px] bg-[#111] rounded-md flex items-center justify-center overflow-hidden">
+                  <div style={{ width: "120px", height: "120px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
                     <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                   </div>
                 </div>
                 
                 {/* User info */}
-                <div>
-                  <div className="flex items-center">
-                    <h2 className="text-[32px] font-bold text-white mr-2">Mr A</h2>
+                <div className="flex flex-col justify-center">
+                  <div className="flex items-center mb-1">
+                    <h2 className="text-white mr-3" style={{
+                      fontFamily: "Manrope",
+                      fontWeight: 700,
+                      fontSize: "24px",
+                      lineHeight: "100%",
+                      letterSpacing: "0%"
+                    }}>Mr A</h2>
                     {/* Verified badge */}
-                    <div className="w-6 h-6 bg-[#00A3FF] rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                      </svg>
+                    <div style={{ width: "20px", height: "20px" }}>
+                      <img src="/images/tick.jpg" alt="Verified" className="w-full h-full object-cover rounded-full" style={{ backgroundColor: "#0095F6" }} />
                     </div>
                   </div>
-                  <p className="text-[14px] text-white mb-2">Co-Founder & CEO @Vertx 
+                  <p className="text-white mb-2" style={{
+                    fontFamily: "Manrope",
+                    fontWeight: 500,
+                    fontSize: "12px",
+                    lineHeight: "100%",
+                    letterSpacing: "0%"
+                  }}>Co-Founder & CEO @Vertx 
                     <span className="ml-1 inline-block">
-                      <img src="/images/logo.png" alt="Vertx Logo" className="w-[16px] h-[16px] inline-block" />
+                      <img src="/images/logo.png" alt="Vertx Logo" className="w-[12px] h-[12px] inline-block" />
                     </span>
                   </p>
                   
                   {/* Entrepreneur tag */}
-                  <div className="inline-block bg-white px-1 text-black rounded relative mb-3" style={{
+                  <div className="inline-block bg-white text-black rounded mb-4" style={{
                     fontFamily: "Manrope",
                     fontWeight: 500,
                     fontSize: "8px",
@@ -102,23 +112,23 @@ const Profile = ({ isMobile }) => {
                   </div>
                   
                   {/* Social icons */}
-                  <div className="flex mt-4 space-x-2">
+                  <div className="flex space-x-3">
                     {/* LinkedIn */}
                     <a href="https://linkedin.com" className="block">
-                      <div className="bg-[#0A66C2] w-8 h-8 flex items-center justify-center rounded">
-                        <img src="/images/linkedin.png" alt="LinkedIn" className="w-7 h-7" />
+                      <div className="bg-[#0A66C2] flex items-center justify-center rounded" style={{ width: "31.3px", height: "31.3px" }}>
+                        <img src="/images/linkedin.png" alt="LinkedIn" className="w-5 h-5" />
                       </div>
                     </a>
                     {/* X (Twitter) */}
                     <a href="https://twitter.com" className="block">
-                      <div className="bg-black w-8 h-8 flex items-center justify-center rounded border border-[#1D1D1D]">
-                        <img src="/images/x.png" alt="X" className="w-7 h-7" />
+                      <div className="bg-black flex items-center justify-center rounded border border-[#1D1D1D]" style={{ width: "31.3px", height: "31.3px" }}>
+                        <img src="/images/x.png" alt="X" className="w-5 h-5" />
                       </div>
                     </a>
                     {/* Gmail */}
                     <a href="mailto:contact@example.com" className="block">
-                      <div className="bg-white w-8 h-8 flex items-center justify-center rounded overflow-hidden">
-                        <img src="/images/gmail.png" alt="Gmail" className="w-7 h-7" />
+                      <div className="bg-white flex items-center justify-center rounded overflow-hidden" style={{ width: "31.3px", height: "31.3px" }}>
+                        <img src="/images/gmail.png" alt="Gmail" className="w-5 h-5" />
                       </div>
                     </a>
                   </div>
@@ -153,7 +163,10 @@ const Profile = ({ isMobile }) => {
                           height: "11.908745765686035px",
                           borderRadius: "2px",
                           padding: "0 4px",
-                          color: "white"
+                          color: "white",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
                         }}>CEO</span>
                       </div>
                       <p className="text-[12px] text-gray-400">Founded in 2025. In Fintech.</p>
@@ -241,52 +254,75 @@ const Profile = ({ isMobile }) => {
           </h2>
           
           {/* User profile card - Mobile */}
-          <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-4 mb-6">
-            <div className="flex flex-col">
+          <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-6" style={{ height: "198.48px" }}>
+            <div className="flex flex-col p-4">
               {/* User avatar */}
               <div className="mb-4 flex justify-center">
-                <div className="w-[100px] h-[100px] bg-[#111] rounded-md flex items-center justify-center overflow-hidden">
+                <div style={{ width: "120px", height: "120px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
                   <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                 </div>
               </div>
               
               {/* User info */}
               <div className="text-center">
-                <div className="flex items-center justify-center">
-                  <h2 className="text-[24px] font-bold text-white mr-2">Mr A</h2>
-                  <div className="w-5 h-5 bg-[#00A3FF] rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                    </svg>
+                <div className="flex items-center justify-center mb-1">
+                  <h2 className="text-white mr-3" style={{
+                    fontFamily: "Manrope",
+                    fontWeight: 700,
+                    fontSize: "24px",
+                    lineHeight: "100%",
+                    letterSpacing: "0%"
+                  }}>Mr A</h2>
+                  {/* Verified badge */}
+                  <div style={{ width: "20px", height: "20px" }}>
+                    <img src="/images/tick.jpg" alt="Verified" className="w-full h-full object-cover rounded-full" style={{ backgroundColor: "#0095F6" }} />
                   </div>
                 </div>
-                <p className="text-[14px] text-white mb-2">Co-Founder & CEO @Vertx 
+                <p className="text-white mb-2" style={{
+                  fontFamily: "Manrope",
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%"
+                }}>Co-Founder & CEO @Vertx 
                   <span className="ml-1 inline-block">
-                    <img src="/images/logo.png" alt="Vertx Logo" className="w-[14px] h-[14px] inline-block" />
+                    <img src="/images/logo.png" alt="Vertx Logo" className="w-[12px] h-[12px] inline-block" />
                   </span>
                 </p>
-                <div className="inline-block bg-white px-2 text-[12px] text-black rounded mb-3">
-                  Entrepreneur
+                <div className="inline-block bg-white text-black rounded mb-4" style={{
+                  fontFamily: "Manrope",
+                  fontWeight: 500,
+                  fontSize: "8px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  width: "72.3983154296875px",
+                  height: "13.893536567687988px",
+                  borderRadius: "2px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}>
+                  ENTREPRENEUR
                 </div>
                 
                 {/* Social icons */}
-                <div className="flex justify-center mt-2 space-x-3">
+                <div className="flex justify-center space-x-3">
                   {/* LinkedIn */}
                   <a href="https://linkedin.com" className="block">
-                    <div className="bg-[#0A66C2] w-7 h-7 flex items-center justify-center rounded">
-                      <img src="/images/linkedin.png" alt="LinkedIn" className="w-3.5 h-3.5" />
+                    <div className="bg-[#0A66C2] flex items-center justify-center rounded" style={{ width: "31.3px", height: "31.3px" }}>
+                      <img src="/images/linkedin.png" alt="LinkedIn" className="w-5 h-5" />
                     </div>
                   </a>
                   {/* X (Twitter) */}
                   <a href="https://twitter.com" className="block">
-                    <div className="bg-black w-7 h-7 border border-[#1D1D1D] flex items-center justify-center rounded">
-                      <img src="/images/x.png" alt="X" className="w-3.5 h-3.5" />
+                    <div className="bg-black border border-[#1D1D1D] flex items-center justify-center rounded" style={{ width: "31.3px", height: "31.3px" }}>
+                      <img src="/images/x.png" alt="X" className="w-5 h-5" />
                     </div>
                   </a>
                   {/* Gmail */}
                   <a href="mailto:contact@example.com" className="block">
-                    <div className="bg-white w-7 h-7 flex items-center justify-center rounded overflow-hidden">
-                      <img src="/images/gmail.png" alt="Gmail" className="w-4 h-3.5" />
+                    <div className="bg-white flex items-center justify-center rounded overflow-hidden" style={{ width: "31.3px", height: "31.3px" }}>
+                      <img src="/images/gmail.png" alt="Gmail" className="w-5 h-5" />
                     </div>
                   </a>
                 </div>
@@ -319,7 +355,10 @@ const Profile = ({ isMobile }) => {
                       height: "11.908745765686035px",
                       borderRadius: "2px",
                       padding: "0 4px",
-                      color: "white"
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
                     }}>CEO</span>
                   </div>
                   <p className="text-[11px] text-gray-400">Founded in 2025. In Fintech.</p>
