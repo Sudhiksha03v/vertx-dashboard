@@ -22,11 +22,11 @@ const InsightsCard = ({ isMobile }) => {
     <div className="p-4">
       <div className="px-2">
         {items.map((item, index) => (
-          <div key={index} className={`${index !== 0 ? 'mt-10' : 'mt-2'}`}>
+          <div key={index} className={`${index !== 0 ? 'mt-8' : 'mt-0'}`}>
             <h4 className="text-[16px] text-white font-semibold font-manrope tracking-[-0.04em] leading-[100%]">{item.title}</h4>
-            <div className="flex items-start mt-1">
+            <div className="flex items-start mt-2">
               <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">{item.value}</div>
-              <div className="ml-2 flex flex-col mt-1">
+              <div className="ml-2 flex flex-col mt-2">
                 <span className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">
                   {item.change}
                 </span>
@@ -38,7 +38,7 @@ const InsightsCard = ({ isMobile }) => {
           </div>
         ))}
         
-        <div className="mt-6 pt-3 border-t border-[#1D1D1D] flex justify-end w-full">
+        <div className="mt-7 pt-4 border-t border-[#1D1D1D] flex justify-end w-full">
           <button className="flex items-center text-[10px] text-white font-semibold font-manrope tracking-[0%] leading-[100%] hover:text-gray-300 transition-colors">
             View detailed insights
             <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

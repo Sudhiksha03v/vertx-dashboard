@@ -62,7 +62,7 @@ const Dashboard = ({ isMobile }) => {
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'visitors' ? null : 'visitors')}
-                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
                         >
                           <span>Visitors</span>
                           <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -84,7 +84,7 @@ const Dashboard = ({ isMobile }) => {
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'timeframe' ? null : 'timeframe')}
-                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer whitespace-nowrap"
+                          className="appearance-none w-[96px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer whitespace-nowrap"
                         >
                           <span>Last 30 days</span>
                           <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -92,7 +92,7 @@ const Dashboard = ({ isMobile }) => {
                           </svg>
                         </div>
                         {dropdownOpen === 'timeframe' && (
-                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                          <div className="absolute left-0 mt-1 w-[96px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
                             <div className="py-0">
                               <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Today</div>
                               <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Yesterday</div>
@@ -105,8 +105,28 @@ const Dashboard = ({ isMobile }) => {
                         )}
                       </div>
                       
+                      <div className="relative inline-block">
+                        <div 
+                          onClick={() => setDropdownOpen(dropdownOpen === 'connections' ? null : 'connections')}
+                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
+                        >
+                          <span>Connections</span>
+                          <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                        {dropdownOpen === 'connections' && (
+                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Visitors</div>
+                              <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Connections</div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
                       {/* Add dropdown - updated to solid border */}
-                      <div className="relative">
+                      <div className="relative ml-3">
                         <button 
                           onClick={() => setAddOpen(!addOpen)} 
                           className="flex items-center relative bg-black border border-[#1D1D1D] text-white py-1 px-3 pl-4 pr-8 rounded-full text-xs font-semibold tracking-[-0.04em] leading-[100%] h-[24px] w-[78px]"
@@ -132,15 +152,15 @@ const Dashboard = ({ isMobile }) => {
                   {/* Stats */}
                   <div className="flex flex-row gap-10 px-5 mt-3 mb-4">
                     <div>
-                      <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">13.49K</div>
-                      <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] mt-1">+469% (897)</div>
+                      <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] font-manrope">13.49K</div>
+                      <div className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope mt-1">+469% <span className="text-[#555555]">(897)</span></div>
                     </div>
                     <div>
                       <div className="flex items-center mb-1">
-                        <div className="w-[6px] h-[6px] rounded-full bg-purple-500 mr-2"></div>
+                        <div className="w-[8px] h-[8px] rounded-full bg-[#C36DEE] mr-2"></div>
                         <div className="text-[12px] text-white font-medium">3.49K</div>
                       </div>
-                      <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%]">+180% (497)</div>
+                      <div className="text-[#01754F] text-[12px] font-semibold tracking-[-0.04em] leading-[100%] font-manrope">+180% <span className="text-[#555555]">(497)</span></div>
                     </div>
                   </div>
                   

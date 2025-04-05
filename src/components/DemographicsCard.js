@@ -37,14 +37,14 @@ const DemographicsCard = ({ isMobile }) => {
       {/* Main content layout */}
       <div className="w-full relative flex">
         {/* World Map - full size and positioned correctly */}
-        <div className="w-[65%] h-[230px] relative">
+        <div className="w-[70%] h-[250px] relative">
           <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-contain opacity-75 mt-[-10px]" />
         </div>
 
         {/* Country stats on right side - exact positioning and styling */}
-        <div className="w-[35%] pl-6 mt-0">
+        <div className="w-[30%] pl-2 mt-[-20px]">
           {countries.map((country, index) => (
-            <div key={country.id} className="mb-5">
+            <div key={country.id} className="mb-4">
               <div className="flex items-center">
                 {/* Flag with exact dimensions */}
                 <div className="w-[40px] h-[28px] rounded-[2px] overflow-hidden mr-3">
@@ -118,10 +118,10 @@ const DemographicsCard = ({ isMobile }) => {
           ))}
           
           {/* Horizontal line with exact specs */}
-          <div className="mt-1 w-[228px] h-[1px] bg-[#1D1D1D]"></div>
+          <div className="mt-2 w-[228px] h-[1px] bg-[#1D1D1D]"></div>
           
           {/* View all countries link with exact specs */}
-          <div className="flex justify-end mt-2">
+          <div className="flex justify-end mt-3">
             <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
               View all countries
               <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
