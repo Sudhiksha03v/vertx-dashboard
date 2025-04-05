@@ -1,14 +1,13 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({ onPageChange, currentPage }) => {
   // Navigation items
   const navItems = [
-    { name: 'Dashboard', active: false },
-    { name: 'Analytics', active: true },
-    { name: 'Connect', active: false },
-    { name: 'Dealroom', active: false },
-    { name: 'Profile', active: false },
-    { name: 'Settings', active: false },
+    { name: 'Analytics', id: 'analytics', clickable: true },
+    { name: 'Connect', id: 'connect', clickable: false },
+    { name: 'Dealroom', id: 'dealroom', clickable: false },
+    { name: 'Profile', id: 'profile', clickable: true },
+    { name: 'Settings', id: 'settings', clickable: false },
   ];
 
   return (
@@ -29,7 +28,7 @@ const Sidebar = () => {
       <div className="flex">
         {/* Left column with user avatar (50px width) */}
         <div className="relative w-[50px] h-[782px] bg-black border-r border-[#1D1D1D]">
-          {/* User profile */}
+          {/* User profile image - only one */}
           <div className="absolute top-[20px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
             <img src="/images/avatar.jpg" alt="User profile" className="w-full h-full object-cover" />
             {/* Green online dot */}
@@ -37,12 +36,12 @@ const Sidebar = () => {
           </div>
           
           {/* Bottom "Add" button */}
-          <div className="absolute bottom-0 left-0 w-[50px] h-[50px] border-t border-r border-[#1D1D1D] flex items-center justify-center">
-            <button className="w-[24px] h-[24px] flex items-center justify-center text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          <div className="absolute bottom-0 w-[50px] h-[50px] border-t border-r border-[#1D1D1D] flex items-center justify-center">
+            <div className="flex items-center justify-center text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-[24px] w-[24px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
               </svg>
-            </button>
+            </div>
           </div>
         </div>
         
@@ -52,10 +51,11 @@ const Sidebar = () => {
           <div className="absolute top-[20px] left-[20px] space-y-8">
             {navItems.map((item) => (
               <div
-                key={item.name}
+                key={item.id}
+                onClick={item.clickable ? () => onPageChange(item.id) : undefined}
                 className={`h-[22px] w-[100px] flex items-center ${
-                  item.active ? 'text-white font-bold' : 'text-[#555555]'
-                } hover:text-white transition-colors cursor-pointer text-[16px] leading-[100%] tracking-[-0.04em]`}
+                  currentPage === item.id ? 'text-white' : 'text-[#555555]'
+                } ${item.clickable ? 'hover:text-white cursor-pointer' : ''} transition-colors font-bold text-[16px] leading-[100%] tracking-[-4%]`}
               >
                 {item.name}
               </div>

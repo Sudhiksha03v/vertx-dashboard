@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
-const Header = () => {
+const Header = ({ isProfilePage }) => {
   const [activeTab, setActiveTab] = useState('Overview');
+  
+  // Define tabs based on the current page
+  const tabs = isProfilePage 
+    ? ['Overview', 'Portfolio', 'Experience', 'Media'] 
+    : ['Overview', 'Demographics'];
   
   return (
     <>
@@ -25,28 +30,21 @@ const Header = () => {
       
       {/* Second bar with tabs */}
       <div className="fixed top-[50px] left-[240px] right-0 h-[50px] bg-black border-b border-[#1D1D1D] flex z-10">
-        {/* Overview tab - active */}
-        <div 
-          className={`h-[50px] px-6 border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
-            activeTab === 'Overview' ? 'border-b-2 border-b-white text-white font-medium' : 'text-[#555555]'
-          }`}
-          onClick={() => setActiveTab('Overview')}
-        >
-          Overview
-        </div>
+        {/* Tabs */}
+        {tabs.map((tab) => (
+          <div 
+            key={tab}
+            className={`h-[50px] px-6 border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+              activeTab === tab ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
+            }`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </div>
+        ))}
         
-        {/* Demographics tab - inactive */}
-        <div 
-          className={`h-[50px] px-6 border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
-            activeTab === 'Demographics' ? 'border-b-2 border-b-white text-white font-medium' : 'text-[#555555]'
-          }`}
-          onClick={() => setActiveTab('Demographics')}
-        >
-          Demographics
-        </div>
-        
-        {/* More section in corner */}
-        <div className="h-[50px] px-6 ml-auto border-l border-[#1D1D1D] flex items-center justify-center text-white cursor-pointer hover:text-gray-300">
+        {/* More section in corner - aligned with Logout button */}
+        <div className="h-[50px] w-[120px] px-6 ml-auto border-l border-[#1D1D1D] flex items-center justify-center text-white cursor-pointer hover:text-gray-300">
           More
         </div>
       </div>

@@ -13,14 +13,14 @@ const Dashboard = ({ isMobile }) => {
   return (
     <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`}>
       {/* Header component - different for mobile and desktop */}
-      {isMobile ? <MobileHeader /> : <Header />}
+      {isMobile ? <MobileHeader /> : <Header isProfilePage={false} />}
       
       {/* Main content area - scrollable */}
       <div className={`${isMobile ? 'pt-[118px] px-4' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
-        <div className={`${isMobile ? '' : 'px-[60px] py-[32px] pb-[60px]'}`}>
-          {/* Overview header - only shown on desktop */}
+        <div className={`${isMobile ? '' : 'pt-[80px] px-[60px] pb-[60px]'}`}>
+          {/* Overview header - only shown on desktop, with exactly the same styling as in Profile */}
           {!isMobile && (
-            <h2 className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
+            <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
               Overview
             </h2>
           )}
@@ -50,31 +50,31 @@ const Dashboard = ({ isMobile }) => {
             </div>
           ) : (
             // Desktop layout - card layout with flex
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10">
               {/* Top row with Overview and Insights cards */}
               <div className="flex gap-6">
                 {/* Overview Graph Card */}
-                <div className="w-[calc(100%-290px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black p-5">
-                  <div className="flex items-center">
+                <div className="w-[calc(100%-290px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
+                  <div className="flex items-center justify-between p-5">
                     {/* Dropdowns */}
                     <div className="flex gap-3">
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'visitors' ? null : 'visitors')}
-                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
                         >
                           <span>Visitors</span>
-                          <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                           </svg>
                         </div>
                         {dropdownOpen === 'visitors' && (
-                          <div className="absolute left-0 mt-1 w-[120px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                            <div className="py-1">
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Visitors</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Connections</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Interactions</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Impressions</div>
+                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-white text-[12px] font-semibold bg-[#0A0A0A]">Visitors</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Interactions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Impressions</div>
                             </div>
                           </div>
                         )}
@@ -83,22 +83,22 @@ const Dashboard = ({ isMobile }) => {
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'timeframe' ? null : 'timeframe')}
-                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                          className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer whitespace-nowrap"
                         >
                           <span>Last 30 days</span>
-                          <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                           </svg>
                         </div>
                         {dropdownOpen === 'timeframe' && (
-                          <div className="absolute left-0 mt-1 w-[120px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                            <div className="py-1">
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Today</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Yesterday</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">This week</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Last week</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Last 7 days</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Last 30 days</div>
+                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Today</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Yesterday</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">This week</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Last week</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Last 7 days</div>
+                              <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Last 30 days</div>
                             </div>
                           </div>
                         )}
@@ -108,16 +108,16 @@ const Dashboard = ({ isMobile }) => {
                       <div className="relative inline-block">
                         <div 
                           onClick={() => setDropdownOpen(dropdownOpen === 'add' ? null : 'add')}
-                          className="w-[80px] h-[24px] border border-dashed border-[#1D1D1D] hover:border-gray-500 rounded-full text-gray-400 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-center cursor-pointer transition-colors"
+                          className="w-[80px] h-[24px] border border-dashed border-[#1D1D1D] text-gray-400 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-center cursor-pointer"
                         >
                           + Add
                         </div>
                         {dropdownOpen === 'add' && (
-                          <div className="absolute left-0 mt-1 w-[120px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                            <div className="py-1">
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Connections</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Interactions</div>
-                              <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Impressions</div>
+                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                            <div className="py-0">
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Interactions</div>
+                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Impressions</div>
                             </div>
                           </div>
                         )}
@@ -126,10 +126,17 @@ const Dashboard = ({ isMobile }) => {
                   </div>
                   
                   {/* Stats */}
-                  <div className="flex items-start mt-6 mb-4">
+                  <div className="flex flex-row gap-10 px-5 mt-3 mb-4">
                     <div>
                       <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">13.49K</div>
                       <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] mt-1">+469% (897)</div>
+                    </div>
+                    <div>
+                      <div className="flex items-center mb-1">
+                        <div className="w-[6px] h-[6px] rounded-full bg-purple-500 mr-2"></div>
+                        <div className="text-[12px] text-white font-medium">3.49K</div>
+                      </div>
+                      <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%]">+180% (497)</div>
                     </div>
                   </div>
                   
@@ -146,18 +153,18 @@ const Dashboard = ({ isMobile }) => {
                     <div className="relative inline-block">
                       <div 
                         onClick={() => setDropdownOpen(dropdownOpen === 'insightsVisitors' ? null : 'insightsVisitors')}
-                        className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                        className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
                       >
                         <span>Visitors</span>
-                        <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                         </svg>
                       </div>
                       {dropdownOpen === 'insightsVisitors' && (
-                        <div className="absolute right-0 mt-1 w-[120px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                          <div className="py-1">
-                            <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Visitors</div>
-                            <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Connections</div>
+                        <div className="absolute right-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                          <div className="py-0">
+                            <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
+                            <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
                           </div>
                         </div>
                       )}
@@ -171,25 +178,6 @@ const Dashboard = ({ isMobile }) => {
               <div className="w-full h-[290px] border border-[#1D1D1D] rounded-lg bg-black overflow-hidden">
                 <div className="flex justify-between items-center p-5">
                   <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
-                  <div className="relative inline-block">
-                    <div 
-                      onClick={() => setDropdownOpen(dropdownOpen === 'demographicsVisitors' ? null : 'demographicsVisitors')}
-                      className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
-                    >
-                      <span>Visitors</span>
-                      <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </div>
-                    {dropdownOpen === 'demographicsVisitors' && (
-                      <div className="absolute right-0 mt-1 w-[120px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                        <div className="py-1">
-                          <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Visitors</div>
-                          <div className="block px-4 py-2 text-white text-[12px] font-semibold hover:bg-[#1D1D1D] cursor-pointer">Connections</div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                 </div>
                 <DemographicsCard isMobile={false} />
               </div>
