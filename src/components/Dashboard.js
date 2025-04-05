@@ -65,7 +65,7 @@ const Dashboard = ({ isMobile }) => {
                           className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
                         >
                           <span>Visitors</span>
-                          <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                           </svg>
                         </div>
@@ -87,7 +87,7 @@ const Dashboard = ({ isMobile }) => {
                           className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer whitespace-nowrap"
                         >
                           <span>Last 30 days</span>
-                          <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                           </svg>
                         </div>
@@ -109,10 +109,10 @@ const Dashboard = ({ isMobile }) => {
                       <div className="relative">
                         <button 
                           onClick={() => setAddOpen(!addOpen)} 
-                          className="flex items-center justify-between bg-black border border-[#1D1D1D] text-white py-1 px-3 rounded-full text-xs font-semibold tracking-[-0.04em] leading-[100%] h-[24px] w-[78px]"
+                          className="flex items-center relative bg-black border border-[#1D1D1D] text-white py-1 px-3 pl-4 pr-8 rounded-full text-xs font-semibold tracking-[-0.04em] leading-[100%] h-[24px] w-[78px]"
                         >
                           <span>Add</span>
-                          <svg className="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <svg className="h-4 w-4 absolute right-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                           </svg>
                         </button>
@@ -152,20 +152,21 @@ const Dashboard = ({ isMobile }) => {
 
                 {/* Insights Card */}
                 <div className="w-[280px] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
-                  <div className="flex justify-between items-center p-5">
+                  <div className="flex justify-between items-center p-4">
                     <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Insights</h3>
                     <div className="relative inline-block">
                       <div 
                         onClick={() => setDropdownOpen(dropdownOpen === 'insightsVisitors' ? null : 'insightsVisitors')}
-                        className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                        className="appearance-none bg-black border border-[#1D1D1D] text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center cursor-pointer"
+                        style={{ width: '87px', height: '24px' }}
                       >
                         <span>Visitors</span>
-                        <svg className="fill-current h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <svg className="fill-current h-4 w-4 absolute right-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                         </svg>
                       </div>
                       {dropdownOpen === 'insightsVisitors' && (
-                        <div className="absolute right-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
+                        <div className="absolute right-0 mt-1 w-[87px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
                           <div className="py-0">
                             <div className="block px-4 py-1.5 text-white bg-[#0A0A0A] text-[12px] font-semibold">Visitors</div>
                             <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>

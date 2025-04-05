@@ -30,7 +30,7 @@ const Sidebar = ({ onPageChange, currentPage }) => {
         {/* Left column with user avatar (50px width) */}
         <div className="relative w-[50px] h-[782px] bg-black border-r border-[#1D1D1D]">
           {/* User profile image - first one */}
-          <div className="absolute top-[20px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
+          <div className="absolute top-[20px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden bg-[#1D1D1D]">
             <img src="/images/avatar.jpg" alt="User profile" className="w-full h-full object-cover" />
             {/* Green online dot */}
             <div className="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full border-2 border-black"></div>
@@ -40,12 +40,12 @@ const Sidebar = ({ onPageChange, currentPage }) => {
           {currentPage === 'profile' && (
             <>
               {/* Second user */}
-              <div className="absolute top-[60px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
+              <div className="absolute top-[60px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden bg-[#1D1D1D]">
                 <img src="/images/avatar2.jpg" alt="User profile 2" className="w-full h-full object-cover" />
               </div>
               
               {/* Third user */}
-              <div className="absolute top-[100px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
+              <div className="absolute top-[100px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden bg-[#1D1D1D]">
                 <img src="/images/avatar3.jpg" alt="User profile 3" className="w-full h-full object-cover" />
               </div>
             </>
