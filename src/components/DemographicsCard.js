@@ -62,10 +62,10 @@ const DemographicsCard = ({ isMobile }) => {
           <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-contain opacity-75 mt-[-35px]" />
         </div>
 
-        {/* Country stats on right side - exact positioning and styling */}
-        <div className={`${isMobile ? 'w-full mt-4 px-0' : 'w-[32%] pl-4 mt-[-15px]'}`}>
+        {/* Country stats on right side - moved higher up and to the right */}
+        <div className={`${isMobile ? 'w-full mt-[-30px] px-0 relative z-10' : 'w-[32%] pl-6 mt-[-40px]'}`}>
           {countries.map((country, index) => (
-            <div key={country.id} className={`${isMobile ? 'mb-6' : 'mb-4'}`}>
+            <div key={country.id} className={`${isMobile ? 'mb-6' : 'mb-5'}`}>
               <div className="flex items-center">
                 {/* Flag with exact dimensions */}
                 <div className={`${isMobile ? 'w-[32px] h-[25px]' : 'w-[40px] h-[28px]'} rounded-[2px] overflow-hidden mr-3`}>
@@ -96,24 +96,14 @@ const DemographicsCard = ({ isMobile }) => {
           ))}
           
           {/* Horizontal line with exact specs */}
-          <div className={`${isMobile ? 'w-full mt-2' : 'mt-2 w-[245px]'} h-[1px] bg-[#1D1D1D]`}></div>
-          
-          {/* View all countries link with exact specs - right aligned to match reference */}
-          <div className={`${isMobile ? 'w-full' : 'w-[245px]'} mt-3`}>
-            <div className="flex justify-end">
-              <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
-                View all countries
-                <span className="ml-1">→</span>
-              </button>
-            </div>
-          </div>
+          <div className={`${isMobile ? 'w-full mt-4' : 'mt-4 w-[245px]'} h-[1px] bg-[#1D1D1D]`}></div>
         </div>
       </div>
 
-      {/* Country indicators */}
+      {/* Country indicators and View all countries positioned on same line */}
       {isMobile ? (
-        <div className="absolute bottom-[-18px] w-full flex justify-center">
-          <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
+        <div className="absolute bottom-[-18px] w-full flex justify-between items-center px-4">
+          <div className="w-[230px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
               <span className="text-white text-xs">India</span>
@@ -131,9 +121,15 @@ const DemographicsCard = ({ isMobile }) => {
               <span className="text-white text-xs">UAE</span>
             </div>
           </div>
+          
+          {/* View all countries now aligned with country indicators */}
+          <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
+            View all countries
+            <span className="ml-1">→</span>
+          </button>
         </div>
       ) : (
-        <div className="absolute bottom-5 left-[24px]">
+        <div className="absolute bottom-5 left-0 w-full px-[24px] flex justify-between items-center">
           <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2">
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
@@ -152,6 +148,12 @@ const DemographicsCard = ({ isMobile }) => {
               <span className="text-white text-xs">UAE</span>
             </div>
           </div>
+          
+          {/* View all countries now aligned with country indicators */}
+          <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
+            View all countries
+            <span className="ml-1">→</span>
+          </button>
         </div>
       )}
     </div>

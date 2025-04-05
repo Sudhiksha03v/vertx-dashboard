@@ -30,7 +30,7 @@ const MobileHeader = () => {
         {tabs.map((tab) => (
           <button 
             key={tab}
-            className={`flex-1 py-3 text-center ${
+            className={`flex-1 py-3 ${tab === 'Demographics' ? 'px-5' : 'px-2'} text-center ${
               activeTab === tab 
                 ? 'text-white border-b-2 border-white' 
                 : 'text-[#555555]'

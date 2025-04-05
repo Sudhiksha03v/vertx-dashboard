@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
-  const [currentPage, setCurrentPage] = useState('dashboard');
+  const [currentPage, setCurrentPage] = useState('analytics');
   
   // Check if we're on mobile view
   useEffect(() => {
@@ -49,6 +49,8 @@ function App() {
     switch (currentPage) {
       case 'profile':
         return <Profile isMobile={isMobile} />;
+      case 'analytics':
+        return <Dashboard isMobile={isMobile} />;
       case 'dashboard':
       default:
         return <Dashboard isMobile={isMobile} />;

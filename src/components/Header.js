@@ -75,7 +75,7 @@ const Header = ({ isProfilePage }) => {
               {tabs.map((tab) => (
                 <div 
                   key={tab}
-                  className={`h-[50px] w-[120px] border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
+                  className={`h-[50px] ${tab === 'Demographics' ? 'w-[150px] px-6' : 'w-[120px]'} border-r border-[#1D1D1D] flex items-center justify-center cursor-pointer ${
                     activeTab === tab ? 'text-white font-medium' : 'text-[#555555] hover:text-white'
                   }`}
                   onClick={() => setActiveTab(tab)}
