@@ -97,13 +97,23 @@ const DemographicsCard = ({ isMobile }) => {
           
           {/* Horizontal line with exact specs */}
           <div className={`${isMobile ? 'w-full mt-4' : 'mt-4 w-[245px]'} h-[1px] bg-[#1D1D1D]`}></div>
+          
+          {/* View all countries link with exact specs - right aligned to match reference */}
+          <div className={`${isMobile ? 'w-full' : 'w-[245px]'} mt-6`}>
+            <div className="flex justify-end">
+              <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
+                View all countries
+                <span className="ml-1">→</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Country indicators and View all countries positioned on same line */}
+      {/* Country indicators */}
       {isMobile ? (
-        <div className="absolute bottom-[-18px] w-full flex justify-between items-center px-4">
-          <div className="w-[230px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
+        <div className="absolute bottom-[-18px] w-full flex justify-center">
+          <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2 bg-black">
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
               <span className="text-white text-xs">India</span>
@@ -121,15 +131,9 @@ const DemographicsCard = ({ isMobile }) => {
               <span className="text-white text-xs">UAE</span>
             </div>
           </div>
-          
-          {/* View all countries now aligned with country indicators */}
-          <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
-            View all countries
-            <span className="ml-1">→</span>
-          </button>
         </div>
       ) : (
-        <div className="absolute bottom-5 left-0 w-full px-[24px] flex justify-between items-center">
+        <div className="absolute bottom-5 left-[24px]">
           <div className="w-[294px] h-[30px] border border-[#1D1D1D] rounded-[20px] flex items-center justify-around px-2">
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-[#4834D4] mr-2"></div>
@@ -148,12 +152,6 @@ const DemographicsCard = ({ isMobile }) => {
               <span className="text-white text-xs">UAE</span>
             </div>
           </div>
-          
-          {/* View all countries now aligned with country indicators */}
-          <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
-            View all countries
-            <span className="ml-1">→</span>
-          </button>
         </div>
       )}
     </div>

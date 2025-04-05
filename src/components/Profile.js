@@ -104,19 +104,19 @@ const Profile = ({ isMobile }) => {
                   {/* Social icons */}
                   <div className="flex mt-4 space-x-2">
                     {/* LinkedIn */}
-                    <a href="#" className="block">
+                    <a href="https://linkedin.com" className="block">
                       <div className="bg-[#0A66C2] w-8 h-8 flex items-center justify-center rounded">
                         <img src="/images/linkedin.png" alt="LinkedIn" className="w-7 h-7" />
                       </div>
                     </a>
                     {/* X (Twitter) */}
-                    <a href="#" className="block">
+                    <a href="https://twitter.com" className="block">
                       <div className="bg-black w-8 h-8 flex items-center justify-center rounded border border-[#1D1D1D]">
                         <img src="/images/x.png" alt="X" className="w-7 h-7" />
                       </div>
                     </a>
                     {/* Gmail */}
-                    <a href="#" className="block">
+                    <a href="mailto:contact@example.com" className="block">
                       <div className="bg-white w-8 h-8 flex items-center justify-center rounded overflow-hidden">
                         <img src="/images/gmail.png" alt="Gmail" className="w-7 h-7" />
                       </div>
@@ -272,19 +272,19 @@ const Profile = ({ isMobile }) => {
                 {/* Social icons */}
                 <div className="flex justify-center mt-2 space-x-3">
                   {/* LinkedIn */}
-                  <a href="#" className="block">
+                  <a href="https://linkedin.com" className="block">
                     <div className="bg-[#0A66C2] w-7 h-7 flex items-center justify-center rounded">
                       <img src="/images/linkedin.png" alt="LinkedIn" className="w-3.5 h-3.5" />
                     </div>
                   </a>
                   {/* X (Twitter) */}
-                  <a href="#" className="block">
+                  <a href="https://twitter.com" className="block">
                     <div className="bg-black w-7 h-7 border border-[#1D1D1D] flex items-center justify-center rounded">
                       <img src="/images/x.png" alt="X" className="w-3.5 h-3.5" />
                     </div>
                   </a>
                   {/* Gmail */}
-                  <a href="#" className="block">
+                  <a href="mailto:contact@example.com" className="block">
                     <div className="bg-white w-7 h-7 flex items-center justify-center rounded overflow-hidden">
                       <img src="/images/gmail.png" alt="Gmail" className="w-4 h-3.5" />
                     </div>
