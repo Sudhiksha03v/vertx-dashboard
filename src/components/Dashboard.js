@@ -11,16 +11,16 @@ const Dashboard = ({ isMobile }) => {
   const [dropdownOpen, setDropdownOpen] = useState(null);
 
   return (
-    <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`} style={{ zoom: '110%' }}>
+    <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`}>
       {/* Header component - different for mobile and desktop */}
       {isMobile ? <MobileHeader /> : <Header />}
       
       {/* Main content area - scrollable */}
-      <div className={`${isMobile ? 'pt-[118px] px-4' : 'fixed top-[100px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-100px)] overflow-y-auto bg-[#080808]'}`}>
+      <div className={`${isMobile ? 'pt-[118px] px-4' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
         <div className={`${isMobile ? '' : 'px-[60px] py-[32px] pb-[60px]'}`}>
           {/* Overview header - only shown on desktop */}
           {!isMobile && (
-            <h2 className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8 ml-3">
+            <h2 className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
               Overview
             </h2>
           )}
@@ -50,7 +50,7 @@ const Dashboard = ({ isMobile }) => {
             </div>
           ) : (
             // Desktop layout - card layout with flex
-            <div className="flex flex-col gap-6 max-w-[1200px]">
+            <div className="flex flex-col gap-8">
               {/* Top row with Overview and Insights cards */}
               <div className="flex gap-6">
                 {/* Overview Graph Card */}
@@ -126,7 +126,7 @@ const Dashboard = ({ isMobile }) => {
                   </div>
                   
                   {/* Stats */}
-                  <div className="flex items-start gap-20 mt-6 mb-6">
+                  <div className="flex items-start mt-6 mb-4">
                     <div>
                       <div className="text-[32px] font-extrabold text-white tracking-[-0.04em] leading-[100%]">13.49K</div>
                       <div className="text-green-500 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] mt-1">+469% (897)</div>
@@ -134,7 +134,7 @@ const Dashboard = ({ isMobile }) => {
                   </div>
                   
                   {/* Chart */}
-                  <div className="h-[160px] w-full">
+                  <div className="h-[170px] w-full mt-2">
                     <OverviewChart isMobile={false} />
                   </div>
                 </div>
@@ -146,7 +146,7 @@ const Dashboard = ({ isMobile }) => {
                     <div className="relative inline-block">
                       <div 
                         onClick={() => setDropdownOpen(dropdownOpen === 'insightsVisitors' ? null : 'insightsVisitors')}
-                        className="appearance-none w-[100px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                        className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
                       >
                         <span>Visitors</span>
                         <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -174,7 +174,7 @@ const Dashboard = ({ isMobile }) => {
                   <div className="relative inline-block">
                     <div 
                       onClick={() => setDropdownOpen(dropdownOpen === 'demographicsVisitors' ? null : 'demographicsVisitors')}
-                      className="appearance-none w-[100px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
+                      className="appearance-none w-[108px] h-[24px] bg-black border border-[#1D1D1D] hover:border-gray-500 text-white py-0.5 px-3 pl-4 pr-8 rounded-full text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-between cursor-pointer"
                     >
                       <span>Visitors</span>
                       <svg className="fill-current h-3 w-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -197,11 +197,6 @@ const Dashboard = ({ isMobile }) => {
           )}
         </div>
       </div>
-      
-      {/* Fixed sidebar shade element - single border */}
-      {!isMobile && (
-        <div className="fixed top-0 left-0 w-[240px] h-screen bg-black border-r border-[#1D1D1D] z-10"></div>
-      )}
     </div>
   );
 };

@@ -30,14 +30,14 @@ const Sidebar = () => {
         {/* Left column with user avatar (50px width) */}
         <div className="relative w-[50px] h-[782px] bg-black border-r border-[#1D1D1D]">
           {/* User profile */}
-          <div className="absolute top-[8px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
+          <div className="absolute top-[20px] left-[10px] w-[30px] h-[30px] rounded-full overflow-hidden">
             <img src="/images/avatar.jpg" alt="User profile" className="w-full h-full object-cover" />
             {/* Green online dot */}
             <div className="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full border-2 border-black"></div>
           </div>
           
           {/* Bottom "Add" button */}
-          <div className="absolute bottom-[60px] left-0 w-[50px] h-[50px] border-t border-r border-[#1D1D1D] flex items-center justify-center">
+          <div className="absolute bottom-0 left-0 w-[50px] h-[50px] border-t border-r border-[#1D1D1D] flex items-center justify-center">
             <button className="w-[24px] h-[24px] flex items-center justify-center text-white">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -49,13 +49,13 @@ const Sidebar = () => {
         {/* Right column with navigation (190px width) */}
         <div className="relative w-[190px] h-[782px] bg-black border-r border-[#1D1D1D]">
           {/* Navigation items */}
-          <div className="absolute top-[18px] left-[23px]">
-            {navItems.map((item, index) => (
+          <div className="absolute top-[20px] left-[20px] space-y-8">
+            {navItems.map((item) => (
               <div
                 key={item.name}
-                className={`h-[22px] w-[80px] flex items-center ${
-                  item.active ? 'text-white' : 'text-[#555555]'
-                } hover:bg-[#111] transition-colors cursor-pointer ${index === 0 ? 'mt-0' : 'mt-6'} font-bold text-[16px] leading-[100%] tracking-[-0.04em]`}
+                className={`h-[22px] w-[100px] flex items-center ${
+                  item.active ? 'text-white font-bold' : 'text-[#555555]'
+                } hover:text-white transition-colors cursor-pointer text-[16px] leading-[100%] tracking-[-0.04em]`}
               >
                 {item.name}
               </div>

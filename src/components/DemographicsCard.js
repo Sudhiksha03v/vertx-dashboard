@@ -12,63 +12,59 @@ const DemographicsCard = ({ isMobile }) => {
   return (
     <div className="p-5 pt-0 pb-4 relative">
       <div className="flex">
-        {/* World Map */}
-        <div className="relative w-[537px] h-[213.4px]" style={{ position: 'absolute', top: '0', left: '0' }}>
-          {/* World map background with dots */}
-          <div className="w-full h-full opacity-50">
-            <div className="absolute" style={{ width: '537px', height: '213.4px' }}>
-              {/* Checkered pattern as fallback for world map */}
-              <div style={{ 
-                width: '100%', 
-                height: '100%', 
-                background: 'repeating-conic-gradient(#1D1D1D 0% 25%, transparent 0% 50%) 50% / 10px 10px'
-              }}></div>
-            </div>
+        {/* World Map and Country indicators */}
+        <div className="relative flex-grow">
+          {/* World map image */}
+          <div className="relative h-[200px] w-full opacity-70">
+            <img src="/images/worldmap.jpg" alt="World Map" className="w-full h-full object-cover" />
             
             {/* Country indicators on map */}
-            <div className="absolute top-[70px] left-[150px]">
+            <div className="absolute top-[50px] left-[150px]">
               <div className="w-3 h-3 rounded-full bg-[#F59E0B]"></div>
             </div>
-            <div className="absolute top-[50px] left-[170px]">
+            <div className="absolute top-[40px] left-[180px]">
               <div className="w-3 h-3 rounded-full bg-[#FBBF24]"></div>
             </div>
-            <div className="absolute top-[60px] left-[210px]">
-              <div className="w-3 h-3 rounded-full bg-[#F59E0B]"></div>
-            </div>
-            <div className="absolute top-[60px] left-[450px]">
+            <div className="absolute top-[70px] left-[350px]">
               <div className="w-3 h-3 rounded-full bg-[#10B981]"></div>
             </div>
-            <div className="absolute top-[70px] left-[510px]">
+            <div className="absolute top-[100px] left-[450px]">
               <div className="w-3 h-3 rounded-full bg-[#8B5CF6]"></div>
+            </div>
+            
+            {/* User highlight */}
+            <div className="absolute top-[70px] left-[400px]">
+              <div className="bg-red-500 text-white px-2 py-0.5 rounded text-xs">
+                Sowmya Kota
+              </div>
+              <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-t-red-500 mx-auto"></div>
             </div>
           </div>
           
-          {/* Country tag bar */}
-          <div className="absolute" style={{ width: '294px', height: '30px', top: '180px', left: '20px', borderRadius: '20px', border: '1px solid #1D1D1D', background: 'rgba(0, 0, 0, 0.5)' }}>
-            <div className="flex items-center h-full px-3" style={{ width: '267px', height: '16px' }}>
-              {countries.map((country, index) => (
-                <div key={country.id} className="flex items-center mr-4">
-                  <div className="w-[12px] h-[12px] rounded-full mr-1" style={{ backgroundColor: country.color }}></div>
-                  <span className="text-white font-semibold text-[12px] tracking-[-0.04em] leading-[100%]">{country.name}</span>
-                </div>
-              ))}
-            </div>
+          {/* Country indicators legend */}
+          <div className="flex mt-2 gap-4 ml-4">
+            {countries.map((country) => (
+              <div key={country.id} className="flex items-center">
+                <div className="w-3 h-3 rounded-full mr-1" style={{ backgroundColor: country.color }}></div>
+                <span className="text-white text-xs">{country.name}</span>
+              </div>
+            ))}
           </div>
         </div>
         
         {/* Countries list with percentages */}
-        <div className="absolute right-5" style={{ top: '24px' }}>
-          {countries.map((country, index) => (
-            <div key={country.id} className="mb-4" style={{ width: '238px', height: '33px' }}>
+        <div className="w-[250px] pl-4">
+          {countries.map((country) => (
+            <div key={country.id} className="mb-4">
               <div className="flex items-center">
-                <div className="mr-3 flex-shrink-0" style={{ width: '40px', height: '28px', borderRadius: '2px', overflow: 'hidden', background: '#1D1D1D', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                  <div className="absolute inset-0 flex items-center justify-center font-bold text-white">{country.code}</div>
+                <div className="mr-3 flex-shrink-0 w-[40px] h-[28px] bg-[#1D1D1D] flex items-center justify-center">
+                  <span className="text-white font-bold">{country.code}</span>
                 </div>
-                <div>
-                  <div className="text-white font-semibold text-[16px] tracking-[-0.04em] leading-[100%]">
+                <div className="flex-grow">
+                  <div className="text-white font-semibold text-sm">
                     {country.name}
                   </div>
-                  <div className="mt-2 relative" style={{ width: '189px', height: '9px' }}>
+                  <div className="mt-1 relative h-2 w-full">
                     <div className="w-full h-full bg-[#1D1D1D] rounded-full"></div>
                     <div 
                       className="absolute top-0 left-0 h-full rounded-full" 
@@ -77,7 +73,7 @@ const DemographicsCard = ({ isMobile }) => {
                         backgroundColor: country.color,
                       }}
                     ></div>
-                    <div className="absolute right-0 top-[-2px] text-white font-semibold text-[10px] tracking-[-0.04em] leading-[100%]">
+                    <div className="absolute right-0 -top-px text-white text-xs font-semibold">
                       {country.percentage}%
                     </div>
                   </div>
@@ -88,7 +84,7 @@ const DemographicsCard = ({ isMobile }) => {
           
           {/* View all countries link */}
           <div className="flex justify-end mt-2">
-            <button className="flex items-center text-white text-[10px] font-semibold tracking-[-0.04em] leading-[100%] hover:underline">
+            <button className="flex items-center text-gray-400 text-xs hover:text-white transition-colors">
               View all countries
               <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
