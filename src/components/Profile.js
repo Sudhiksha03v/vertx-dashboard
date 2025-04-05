@@ -69,19 +69,19 @@ const Profile = ({ isMobile }) => {
             <div className="ml-auto w-[120px] px-6 py-3 text-white flex items-center justify-center">More</div>
           </div>
           
-          <div className="pt-[60px] px-[60px] pb-[60px]">
-            {/* Profile Overview header */}
-            <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
+          <div className="pt-[80px] px-[80px] pb-[60px]">
+            {/* Profile Overview header - reduced gap */}
+            <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-6">
               Overview
             </h2>
             
             {/* User profile card with exact dimensions */}
-            <div className="w-[907.17px] h-[198.48px] border border-[#1D1D1D] rounded-lg bg-black p-6 mb-8 relative" style={{borderWidth: '1px'}}>
+            <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-6 mb-8 relative" style={{borderWidth: '1px'}}>
               <div className="flex items-center">
-                {/* User avatar */}
-                <div className="mr-6">
+                {/* User avatar with margin */}
+                <div className="ml-6 mr-6">
                   <div className="w-[120px] h-[120px] bg-[#111] rounded-md flex items-center justify-center">
-                    <img src="/images/avatar.jpg" alt="User Profile" className="w-full h-full object-cover" />
+                    <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                   </div>
                 </div>
                 
@@ -101,7 +101,8 @@ const Profile = ({ isMobile }) => {
                       <img src="/images/logo.png" alt="Vertx Logo" className="w-[12px] h-[12px] inline-block" />
                     </span>
                   </p>
-                  <div className="inline-block bg-[#111] px-2 py-1 text-[12px] text-white rounded w-[72px]">
+                  {/* Entrepreneur tag with white background and black text */}
+                  <div className="inline-block bg-white px-2 py-1 text-[12px] text-black rounded w-[72px] font-semibold" style={{borderRadius: '2px', width: '72.4px', height: '14px'}}>
                     Entrepreneur
                   </div>
                   
@@ -133,15 +134,15 @@ const Profile = ({ isMobile }) => {
             </div>
             
             {/* Two column layout for companies and experience with exact dimensions */}
-            <div className="flex gap-6">
+            <div className="flex gap-8 w-full justify-between">
               {/* Founded Companies Card with exact dimensions */}
-              <div className="w-[444.26px] h-[347.34px] border border-[#1D1D1D] rounded-lg bg-black p-6 relative" style={{borderWidth: '1px'}}>
+              <div className="w-[calc(50%-16px)] border border-[#1D1D1D] rounded-lg bg-black p-6 relative" style={{borderWidth: '1px'}}>
                 <h3 className="text-[18px] font-extrabold text-white mb-4">Founded Companies</h3>
                 
                 <div className="text-[64px] font-bold text-white mb-6">02</div>
                 
                 {/* Company 1 */}
-                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-[387px]">
+                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-full">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-black flex items-center justify-center mr-3 border border-[#1D1D1D] rounded">
                       <img src="/images/logo.png" alt="Vertx Logo" className="w-6 h-6 object-contain" />
@@ -158,7 +159,7 @@ const Profile = ({ isMobile }) => {
                 </div>
                 
                 {/* Company 2 */}
-                <div className="flex items-center justify-between w-[387px]">
+                <div className="flex items-center justify-between w-full mb-10">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
                       {/* Placeholder for company logo */}
@@ -176,42 +177,42 @@ const Profile = ({ isMobile }) => {
               </div>
               
               {/* Experience Card with exact dimensions */}
-              <div className="w-[444.26px] h-[347.34px] border border-[#1D1D1D] rounded-lg bg-black p-6 relative" style={{borderWidth: '1px'}}>
+              <div className="w-[calc(50%-16px)] border border-[#1D1D1D] rounded-lg bg-black p-6 relative" style={{borderWidth: '1px'}}>
                 <h3 className="text-[18px] font-extrabold text-white mb-4">Experience</h3>
                 
                 <div className="text-[64px] font-bold text-white mb-6">03</div>
                 
                 {/* Experience 1 */}
-                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-[387px]">
+                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-full" style={{width: '386px', borderRadius: '2px'}}>
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
                       {/* Placeholder for company logo */}
                     </div>
-                    <h4 className="text-[16px] font-bold text-white">Company 1</h4>
+                    <h4 className="text-[14px] font-bold text-white" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>Company 1</h4>
                   </div>
-                  <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
+                  <button className="text-[8px] text-gray-400 hover:text-white font-medium" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>View Profile</button>
                 </div>
                 
                 {/* Experience 2 */}
-                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-[387px]">
+                <div className="flex items-center justify-between mb-4 border-b border-[#1D1D1D] pb-4 w-full" style={{width: '386px', borderRadius: '2px'}}>
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
                       {/* Placeholder for company logo */}
                     </div>
-                    <h4 className="text-[16px] font-bold text-white">Company 2</h4>
+                    <h4 className="text-[14px] font-bold text-white" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>Company 2</h4>
                   </div>
-                  <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
+                  <button className="text-[8px] text-gray-400 hover:text-white font-medium" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>View Profile</button>
                 </div>
                 
                 {/* Experience 3 */}
-                <div className="flex items-center justify-between w-[387px]">
+                <div className="flex items-center justify-between w-full mb-10" style={{width: '386px', borderRadius: '2px'}}>
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-white flex items-center justify-center mr-3 rounded">
                       {/* Placeholder for company logo */}
                     </div>
-                    <h4 className="text-[16px] font-bold text-white">Company 3</h4>
+                    <h4 className="text-[14px] font-bold text-white" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>Company 3</h4>
                   </div>
-                  <button className="text-[12px] text-gray-400 hover:text-white">View Profile</button>
+                  <button className="text-[8px] text-gray-400 hover:text-white font-medium" style={{fontFamily: 'Manrope', lineHeight: '100%', letterSpacing: '0%'}}>View Profile</button>
                 </div>
               </div>
             </div>
@@ -230,7 +231,7 @@ const Profile = ({ isMobile }) => {
               {/* User avatar */}
               <div className="mb-4 flex justify-center">
                 <div className="w-[100px] h-[100px] bg-[#111] rounded-md flex items-center justify-center">
-                  <img src="/images/avatar.jpg" alt="User Profile" className="w-full h-full object-cover" />
+                  <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                 </div>
               </div>
               
@@ -249,7 +250,7 @@ const Profile = ({ isMobile }) => {
                     <img src="/images/logo.png" alt="Vertx Logo" className="w-[10px] h-[10px] inline-block" />
                   </span>
                 </p>
-                <div className="inline-block bg-[#111] px-2 py-1 text-[12px] text-white rounded mb-3">
+                <div className="inline-block bg-white px-2 py-1 text-[12px] text-black rounded mb-3">
                   Entrepreneur
                 </div>
                 

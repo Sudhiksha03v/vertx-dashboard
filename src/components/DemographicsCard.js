@@ -33,137 +33,112 @@ const DemographicsCard = ({ isMobile }) => {
           </div>
         )}
       </div>
-      
-      <div className="flex px-4">
-        {/* World Map */}
-        <div className="relative" style={{ width: '537px', height: '213.4px' }}>
-          {/* World map image */}
-          <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-cover opacity-70" />
-          
-          {/* Country indicators on map */}
-          <div className="absolute top-[80px] left-[150px]">
-            <div className="w-3 h-3 rounded-full bg-[#F59E0B] border border-[#111]"></div>
+
+      <div className="flex">
+        {/* Main content layout */}
+        <div className="w-full relative flex">
+          {/* World Map - reduced size */}
+          <div className="w-[60%] h-[180px]">
+            <img src="/images/worldmap.png" alt="World Map" className="w-full h-full object-cover opacity-70" />
           </div>
-          <div className="absolute top-[60px] left-[180px]">
-            <div className="w-3 h-3 rounded-full bg-[#FBBF24] border border-[#111]"></div>
-          </div>
-          <div className="absolute top-[100px] left-[350px]">
-            <div className="w-3 h-3 rounded-full bg-[#10B981] border border-[#111]"></div>
-          </div>
-          <div className="absolute top-[130px] left-[450px]">
-            <div className="w-3 h-3 rounded-full bg-[#8B5CF6] border border-[#111]"></div>
-          </div>
-          
-          {/* User highlight */}
-          <div className="absolute top-[70px] left-[350px]">
-            <div className="bg-red-500 text-white px-2 py-0.5 rounded text-xs">
-              Sowmya Kota
-            </div>
-            <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-t-red-500 mx-auto"></div>
-          </div>
-          
-          {/* Country indicators legend */}
-          <div className="absolute bottom-2 left-8 flex items-center gap-3 px-4 py-1.5 bg-black bg-opacity-50 rounded-full border border-[#1D1D1D]">
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-[#8B5CF6]"></div>
-              <span className="text-white text-xs">India</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-[#F59E0B]"></div>
-              <span className="text-white text-xs">USA</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-[#FBBF24]"></div>
-              <span className="text-white text-xs">CANADA</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-[#10B981]"></div>
-              <span className="text-white text-xs">UAE</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Countries list with percentages */}
-        <div className="w-[250px] pl-16">
-          {countries.map((country) => (
-            <div key={country.id} className="mb-4">
-              <div className="flex items-center">
-                <div className="flex-shrink-0 w-[30px] h-[20px] mr-2">
-                  {country.name === 'India' && (
-                    <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
-                      <div className="w-[24px] h-[14px] bg-gradient-to-b from-[#FF9933] via-[#FFFFFF] to-[#138808]"></div>
-                    </div>
-                  )}
-                  {country.name === 'USA' && (
-                    <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
-                      <div className="w-[24px] h-[14px] relative bg-[#FFFFFF]">
-                        <div className="absolute top-0 left-0 w-[10px] h-[8px] bg-[#3C3B6E]"></div>
-                        <div className="absolute w-full h-[2px] top-0 bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[2px] bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[4px] bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[6px] bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[8px] bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[10px] bg-[#B22234]"></div>
-                        <div className="absolute w-full h-[2px] top-[12px] bg-[#B22234]"></div>
+
+          {/* Country stats on right side - moved to align with image */}
+          <div className="w-[40%] pl-6">
+            {countries.map((country) => (
+              <div key={country.id} className="mb-3">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 w-[30px] h-[20px] mr-2">
+                    {country.name === 'India' && (
+                      <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
+                        <div className="w-[24px] h-[14px] bg-gradient-to-b from-[#FF9933] via-[#FFFFFF] to-[#138808]"></div>
                       </div>
-                    </div>
-                  )}
-                  {country.name === 'CANADA' && (
-                    <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
-                      <div className="w-[24px] h-[14px] bg-[#FFFFFF] relative">
-                        <div className="absolute left-0 top-0 w-[6px] h-full bg-[#FF0000]"></div>
-                        <div className="absolute right-0 top-0 w-[6px] h-full bg-[#FF0000]"></div>
-                        <div className="absolute left-[9px] top-[5px] w-[6px] h-[4px] bg-[#FF0000]"></div>
+                    )}
+                    {country.name === 'USA' && (
+                      <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
+                        <div className="w-[24px] h-[14px] relative bg-[#FFFFFF]">
+                          <div className="absolute top-0 left-0 w-[10px] h-[8px] bg-[#3C3B6E]"></div>
+                          <div className="absolute w-full h-[2px] top-0 bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[2px] bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[4px] bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[6px] bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[8px] bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[10px] bg-[#B22234]"></div>
+                          <div className="absolute w-full h-[2px] top-[12px] bg-[#B22234]"></div>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  {country.name === 'UAE' && (
-                    <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
-                      <div className="w-[24px] h-[14px] bg-[#FFFFFF] relative">
-                        <div className="absolute left-0 top-0 w-[8px] h-full bg-[#00732F]"></div>
-                        <div className="absolute top-0 left-[8px] w-[16px] h-[5px] bg-[#FF0000]"></div>
-                        <div className="absolute bottom-0 left-[8px] w-[16px] h-[5px] bg-[#000000]"></div>
+                    )}
+                    {country.name === 'CANADA' && (
+                      <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
+                        <div className="w-[24px] h-[14px] bg-[#FFFFFF] relative">
+                          <div className="absolute left-0 top-0 w-[6px] h-full bg-[#FF0000]"></div>
+                          <div className="absolute right-0 top-0 w-[6px] h-full bg-[#FF0000]"></div>
+                          <div className="absolute left-[9px] top-[5px] w-[6px] h-[4px] bg-[#FF0000]"></div>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-                <div className="flex-grow">
-                  <div className="text-white font-semibold text-sm">
-                    {country.name}
+                    )}
+                    {country.name === 'UAE' && (
+                      <div className="w-full h-full bg-[#1D1D1D] flex items-center justify-center">
+                        <div className="w-[24px] h-[14px] bg-[#FFFFFF] relative">
+                          <div className="absolute left-0 top-0 w-[8px] h-full bg-[#00732F]"></div>
+                          <div className="absolute top-0 left-[8px] w-[16px] h-[5px] bg-[#FF0000]"></div>
+                          <div className="absolute bottom-0 left-[8px] w-[16px] h-[5px] bg-[#000000]"></div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <div className="mt-1 relative h-2 w-full">
-                    <div className="w-full h-full bg-[#1D1D1D] rounded-full"></div>
-                    <div 
-                      className="absolute top-0 left-0 h-full rounded-full" 
-                      style={{ 
-                        width: `${country.percentage}%`, 
-                        backgroundColor: country.color,
-                      }}
-                    ></div>
-                    <div className="absolute right-0 -top-px text-white text-xs font-semibold">
-                      {country.percentage}%
+                  <div className="flex-grow">
+                    <div className="text-white font-semibold text-sm">
+                      {country.name}
+                    </div>
+                    <div className="mt-1 relative h-2 w-full">
+                      <div className="w-full h-full bg-[#1D1D1D] rounded-full"></div>
+                      <div 
+                        className="absolute top-0 left-0 h-full rounded-full" 
+                        style={{ 
+                          width: `${country.percentage}%`, 
+                          backgroundColor: country.color,
+                        }}
+                      ></div>
+                      <div className="absolute right-0 -top-px text-white text-xs font-semibold">
+                        {country.percentage}%
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            ))}
+            
+            {/* View all countries link */}
+            <div className="flex justify-end mt-1">
+              <button className="flex items-center text-gray-400 text-[10px] font-semibold hover:text-white transition-colors">
+                View all countries
+                <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
             </div>
-          ))}
-          
-          {/* View all countries link */}
-          <div className="flex justify-end mt-1">
-            <button className="flex items-center text-gray-400 text-[10px] font-semibold hover:text-white transition-colors">
-              View all countries
-              <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </button>
           </div>
         </div>
       </div>
-      
-      {/* Circle A button at bottom right */}
-      <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center text-white font-semibold">
-        A
+
+      {/* Country indicators below map */}
+      <div className="absolute bottom-4 left-[60px] flex space-x-6 items-center">
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-[#8B5CF6] mr-2"></div>
+          <span className="text-white text-xs">India</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-[#F59E0B] mr-2"></div>
+          <span className="text-white text-xs">USA</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-[#FBBF24] mr-2"></div>
+          <span className="text-white text-xs">CANADA</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-[#10B981] mr-2"></div>
+          <span className="text-white text-xs">UAE</span>
+        </div>
       </div>
     </div>
   );

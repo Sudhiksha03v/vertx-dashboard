@@ -9,6 +9,7 @@ import MobileNav from './MobileNav';
 
 const Dashboard = ({ isMobile }) => {
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [addOpen, setAddOpen] = useState(false);
 
   return (
     <div className={`${isMobile ? 'w-full pb-20' : 'h-screen bg-black overflow-auto font-manrope'}`}>
@@ -17,7 +18,7 @@ const Dashboard = ({ isMobile }) => {
       
       {/* Main content area - scrollable */}
       <div className={`${isMobile ? 'pt-[118px] px-4' : 'fixed top-[50px] left-[240px] w-[calc(100%-240px)] h-[calc(100vh-50px)] overflow-y-auto bg-[#080808]'}`}>
-        <div className={`${isMobile ? '' : 'pt-[80px] px-[60px] pb-[60px]'}`}>
+        <div className={`${isMobile ? '' : 'pt-[100px] px-[60px] pr-[80px] pb-[60px]'}`}>
           {/* Overview header - only shown on desktop, with exactly the same styling as in Profile */}
           {!isMobile && (
             <h2 className="text-[28px] font-extrabold text-white tracking-[-0.04em] leading-[100%] mb-8">
@@ -52,9 +53,9 @@ const Dashboard = ({ isMobile }) => {
             // Desktop layout - card layout with flex
             <div className="flex flex-col gap-10">
               {/* Top row with Overview and Insights cards */}
-              <div className="flex gap-6">
+              <div className="flex gap-8">
                 {/* Overview Graph Card */}
-                <div className="w-[calc(100%-290px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
+                <div className="w-[calc(100%-300px)] h-[290px] border border-[#1D1D1D] rounded-lg bg-black">
                   <div className="flex items-center justify-between p-5">
                     {/* Dropdowns */}
                     <div className="flex gap-3">
@@ -104,20 +105,23 @@ const Dashboard = ({ isMobile }) => {
                         )}
                       </div>
                       
-                      {/* +Add button with dotted border */}
-                      <div className="relative inline-block">
-                        <div 
-                          onClick={() => setDropdownOpen(dropdownOpen === 'add' ? null : 'add')}
-                          className="w-[80px] h-[24px] border border-dashed border-[#1D1D1D] text-gray-400 text-[12px] font-semibold tracking-[-0.04em] leading-[100%] flex items-center justify-center cursor-pointer"
+                      {/* Add dropdown - updated to solid border */}
+                      <div className="relative">
+                        <button 
+                          onClick={() => setAddOpen(!addOpen)} 
+                          className="flex items-center justify-between bg-black border border-[#1D1D1D] text-white py-1 px-3 rounded-full text-xs font-semibold tracking-[-0.04em] leading-[100%] h-[24px] w-[78px]"
                         >
-                          + Add
-                        </div>
-                        {dropdownOpen === 'add' && (
-                          <div className="absolute left-0 mt-1 w-[108px] bg-black border border-[#1D1D1D] rounded-md shadow-lg z-10">
-                            <div className="py-0">
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Connections</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Interactions</div>
-                              <div className="block px-4 py-1.5 text-[#555555] text-[12px] font-semibold">Impressions</div>
+                          <span>Add</span>
+                          <svg className="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                          </svg>
+                        </button>
+                        {addOpen && (
+                          <div className="absolute right-0 mt-1 w-[120px] rounded-md shadow-lg bg-black border border-[#1D1D1D] z-20">
+                            <div className="py-1">
+                              <a href="#" className="block px-4 py-1.5 text-white hover:bg-[#1D1D1D] text-xs">Add Widget</a>
+                              <a href="#" className="block px-4 py-1.5 text-white hover:bg-[#1D1D1D] text-xs">Add Chart</a>
+                              <a href="#" className="block px-4 py-1.5 text-white hover:bg-[#1D1D1D] text-xs">Add Card</a>
                             </div>
                           </div>
                         )}
@@ -175,7 +179,7 @@ const Dashboard = ({ isMobile }) => {
               </div>
 
               {/* Demographics Card */}
-              <div className="w-full h-[290px] border border-[#1D1D1D] rounded-lg bg-black overflow-hidden">
+              <div className="w-full border border-[#1D1D1D] rounded-lg bg-black overflow-hidden">
                 <div className="flex justify-between items-center p-5">
                   <h3 className="text-[20px] font-bold text-white tracking-[-0.04em] leading-[100%]">Demographics</h3>
                 </div>
