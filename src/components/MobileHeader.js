@@ -9,7 +9,7 @@ const MobileHeader = () => {
       <div className="fixed top-0 left-0 right-0 z-20 bg-black border-b border-[#1D1D1D] h-[60px] flex items-center justify-between px-4">
         {/* User profile on left */}
         <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#1D1D1D]">
-          <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
+          <img src="/images/avatar.jpg" alt="User Profile" className="w-full h-full object-cover" />
         </div>
         
         {/* Company logo in center */}
@@ -25,16 +25,16 @@ const MobileHeader = () => {
         </div>
       </div>
       
-      {/* Tab navigation - similar to web view */}
+      {/* Tab navigation with border between tabs */}
       <div className="fixed top-[60px] left-0 right-0 z-20 flex bg-black border-b border-[#1D1D1D]">
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <button 
             key={tab}
-            className={`flex-1 py-3 ${tab === 'Demographics' ? 'px-5' : 'px-2'} text-center ${
+            className={`flex-1 py-3 ${tab === 'Demographics' ? 'px-5' : 'px-2'} text-center text-white ${
               activeTab === tab 
-                ? 'text-white border-b-2 border-white' 
-                : 'text-[#555555]'
-            }`}
+                ? 'font-medium' 
+                : ''
+            } ${index > 0 ? 'border-l border-[#1D1D1D]' : ''}`}
             onClick={() => setActiveTab(tab)}
           >
             {tab}

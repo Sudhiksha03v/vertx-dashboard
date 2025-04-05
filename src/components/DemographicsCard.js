@@ -174,10 +174,10 @@ const DemographicsCard = ({ isMobile }) => {
             ))}
             
             {/* Horizontal line with exact specs */}
-            <div className="mt-4 w-[245px] h-[1px] bg-[#1D1D1D]"></div>
+            <div className="mt-4 w-[245px] h-[1px] bg-[#1D1D1D] my-6"></div>
             
             {/* View all countries link with exact specs - right aligned to match reference */}
-            <div className="w-[245px] mt-4">
+            <div className="w-[245px] mt-6">
               <div className="flex justify-end">
                 <button className="flex items-center text-white text-[10px] font-semibold font-manrope leading-[100%] hover:text-gray-300 transition-colors">
                   View all countries

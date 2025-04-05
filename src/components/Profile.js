@@ -15,7 +15,9 @@ const Profile = ({ isMobile }) => {
       {/* Mobile header */}
       {isMobile && (
         <div className="fixed top-0 left-0 w-full bg-black py-4 px-5 flex justify-between items-center z-50 border-b border-[#1D1D1D]">
-          <div className="w-8 h-8 rounded-full bg-white"></div>
+          <div className="w-8 h-8 rounded-full overflow-hidden">
+            <img src="/images/avatar.jpg" alt="User Avatar" className="w-full h-full object-cover" />
+          </div>
           <div className="flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
             <img src="/images/logo.png" alt="Vertx Logo" className="h-8" />
           </div>
@@ -254,11 +256,11 @@ const Profile = ({ isMobile }) => {
           </h2>
           
           {/* User profile card - Mobile */}
-          <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-6" style={{ height: "198.48px" }}>
-            <div className="flex flex-col p-4">
+          <div className="w-full border border-[#1D1D1D] rounded-lg bg-black p-0 mb-6">
+            <div className="flex flex-col p-5 pt-4 pb-6">
               {/* User avatar */}
-              <div className="mb-4 flex justify-center">
-                <div style={{ width: "120px", height: "120px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
+              <div className="mb-3 flex justify-center">
+                <div style={{ width: "80px", height: "80px" }} className="bg-white rounded-full flex items-center justify-center overflow-hidden">
                   <img src="/images/user.jpg" alt="User Profile" className="w-full h-full object-cover" />
                 </div>
               </div>
@@ -266,62 +268,64 @@ const Profile = ({ isMobile }) => {
               {/* User info */}
               <div className="text-center">
                 <div className="flex items-center justify-center mb-1">
-                  <h2 className="text-white mr-3" style={{
+                  <h2 className="text-white mr-2" style={{
                     fontFamily: "Manrope",
                     fontWeight: 700,
-                    fontSize: "24px",
+                    fontSize: "20px",
                     lineHeight: "100%",
                     letterSpacing: "0%"
                   }}>Mr A</h2>
                   {/* Verified badge */}
-                  <div style={{ width: "20px", height: "20px" }}>
+                  <div style={{ width: "18px", height: "18px" }}>
                     <img src="/images/tick.jpg" alt="Verified" className="w-full h-full object-cover rounded-full" style={{ backgroundColor: "#0095F6" }} />
                   </div>
                 </div>
-                <p className="text-white mb-2" style={{
+                <p className="text-white mb-3" style={{
                   fontFamily: "Manrope",
                   fontWeight: 500,
-                  fontSize: "12px",
+                  fontSize: "11px",
                   lineHeight: "100%",
                   letterSpacing: "0%"
                 }}>Co-Founder & CEO @Vertx 
                   <span className="ml-1 inline-block">
-                    <img src="/images/logo.png" alt="Vertx Logo" className="w-[12px] h-[12px] inline-block" />
+                    <img src="/images/logo.png" alt="Vertx Logo" className="w-[10px] h-[10px] inline-block" />
                   </span>
                 </p>
-                <div className="inline-block bg-white text-black rounded mb-4" style={{
-                  fontFamily: "Manrope",
-                  fontWeight: 500,
-                  fontSize: "8px",
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  width: "72.3983154296875px",
-                  height: "13.893536567687988px",
-                  borderRadius: "2px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}>
-                  ENTREPRENEUR
+                <div className="flex justify-center w-full mb-4">
+                  <div className="inline-block bg-white text-black rounded" style={{
+                    fontFamily: "Manrope",
+                    fontWeight: 600,
+                    fontSize: "8px",
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    width: "72.3983154296875px",
+                    height: "13.893536567687988px",
+                    borderRadius: "2px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}>
+                    ENTREPRENEUR
+                  </div>
                 </div>
                 
                 {/* Social icons */}
-                <div className="flex justify-center space-x-3">
+                <div className="flex justify-center space-x-5">
                   {/* LinkedIn */}
                   <a href="https://linkedin.com" className="block">
-                    <div className="bg-[#0A66C2] flex items-center justify-center rounded" style={{ width: "31.3px", height: "31.3px" }}>
+                    <div className="bg-[#0A66C2] flex items-center justify-center rounded" style={{ width: "30px", height: "30px" }}>
                       <img src="/images/linkedin.png" alt="LinkedIn" className="w-5 h-5" />
                     </div>
                   </a>
                   {/* X (Twitter) */}
                   <a href="https://twitter.com" className="block">
-                    <div className="bg-black border border-[#1D1D1D] flex items-center justify-center rounded" style={{ width: "31.3px", height: "31.3px" }}>
+                    <div className="bg-black border border-[#1D1D1D] flex items-center justify-center rounded" style={{ width: "30px", height: "30px" }}>
                       <img src="/images/x.png" alt="X" className="w-5 h-5" />
                     </div>
                   </a>
                   {/* Gmail */}
                   <a href="mailto:contact@example.com" className="block">
-                    <div className="bg-white flex items-center justify-center rounded overflow-hidden" style={{ width: "31.3px", height: "31.3px" }}>
+                    <div className="bg-white flex items-center justify-center rounded overflow-hidden" style={{ width: "30px", height: "30px" }}>
                       <img src="/images/gmail.png" alt="Gmail" className="w-5 h-5" />
                     </div>
                   </a>
